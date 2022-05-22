@@ -48,7 +48,7 @@ public class ControleurIntro {
     	ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
     	ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
     	ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
-    	
+
     	dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
 
     	Node btnOk = dialog.getDialogPane().lookupButton(buttonTypeValider);
@@ -60,9 +60,9 @@ public class ControleurIntro {
     	
     	Optional<ButtonType> result = dialog.showAndWait();
 		if (result.get() == buttonTypeValider) {
-			System.out.println("Valider");
+			contParametres.valider();
 		} else if (result.get() == buttonTypeRes) {
-			System.out.println("Défaut");
+			ouvrirParametres();
 		}
 		else if (result.get() == buttonTypeAnnuler) {
 			dialog.close();
