@@ -89,6 +89,7 @@ public void initialize() {
 	else {
 		textPseudo.setText("Joueur1");
 	}
+	
 	sliderPolice.valueProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
 		public void changed(
 				ObservableValue<? extends Number> observableValue, 
