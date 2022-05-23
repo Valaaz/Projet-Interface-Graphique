@@ -30,7 +30,7 @@ public class ControleurIntro {
 	@FXML
 	public void jouer(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/jeu.fxml"));
-		ControleurJeu contJeu = new ControleurJeu();
+		ControleurJeu contJeu = new ControleurJeu(jeu, option);
 		loader.setController(contJeu);
 
 		try {
