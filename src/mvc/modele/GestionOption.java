@@ -25,7 +25,7 @@ public class GestionOption {
 		this.theme = "Tous les thèmes";
 		this.difficulte = "Moyen";
 		this.modeSombre = false;
-		this.taillePolice = 0;
+		this.taillePolice = 12;
 		this.skinPendu = 0;
 	}
 

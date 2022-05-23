@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -29,27 +30,34 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <CheckBox fx:id="cBoxSombre" mnemonicParsing="false" text="Mode sombre" GridPane.columnIndex="2" />
-      <Label text="Changer le pseudo :" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <CheckBox fx:id="cBoxSombre" mnemonicParsing="false" text="Mode sombre" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+      <Label text="Changer le pseudo :" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <TextField fx:id="textPseudo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Label alignment="CENTER" text="Taille du texte" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Slider fx:id="sliderPolice" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" minorTickCount="0" onMouseClicked="#setLabelPolice" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Label alignment="CENTER" text="Taille du texte" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Slider fx:id="sliderPolice" blockIncrement="2.0" majorTickUnit="2.0" max="22.0" min="12.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Label text="aA" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <font>
             <Font size="22.0" />
          </font>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
       </Label>
-      <Label text="aA" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Label fx:id="lblTaillePolice" alignment="CENTER" prefHeight="70.0" prefWidth="120.0" text="Taille de la police" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Label text="Skin du pendu" underline="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <RadioButton fx:id="radioBtnSkinSimple" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <Label text="aA" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="lblTaillePolice" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="134.0" text="Taille de la police" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+      <Label text="Skin du pendu" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      <RadioButton fx:id="radioBtnSkinSimple" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
          <graphic>
             <ImageView fitHeight="75.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" />
          </graphic>
       </RadioButton>
-      <RadioButton fx:id="radioBtnSkinAvance" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="6">
+      <RadioButton fx:id="radioBtnSkinAvance" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="6">
          <graphic>
-            <ImageView fitHeight="44.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="62.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" />
          </graphic>
       </RadioButton>
    </children>

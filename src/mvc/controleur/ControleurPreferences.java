@@ -1,5 +1,7 @@
 package mvc.controleur;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -58,26 +60,26 @@ public void initialize() {
 	}
 	
 	switch(option.getTaillePolice()) {
-	case 0:
-		sliderPolice.setValue(0);
+	case 12:
+		sliderPolice.setValue(12);
 		break;
-	case 1:
-		sliderPolice.setValue(1);
+	case 14:
+		sliderPolice.setValue(14);
 		break;
-	case 2:
-		sliderPolice.setValue(2);
+	case 16:
+		sliderPolice.setValue(16);
 		break;
-	case 3:
-		sliderPolice.setValue(3);
+	case 18:
+		sliderPolice.setValue(18);
 		break;
-	case 4:
-		sliderPolice.setValue(4);
+	case 20:
+		sliderPolice.setValue(20);
 		break;
-	case 5:
-		sliderPolice.setValue(5);
+	case 22:
+		sliderPolice.setValue(22);
 		break;
 	default:
-		sliderPolice.setValue(3);
+		sliderPolice.setValue(12);
 		break;
 	}
 	
@@ -87,26 +89,34 @@ public void initialize() {
 	else {
 		textPseudo.setText("Joueur1");
 	}
+	sliderPolice.valueProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
+		public void changed(
+				ObservableValue<? extends Number> observableValue, 
+                Number oldValue, 
+                Number newValue) {
+			lblTaillePolice.setFont(new Font("System", (double) newValue));
+		}
+	});
 }
 
-public void setLabelPolice() {
+/*public void setLabelPolice() {
 	switch((int)sliderPolice.getValue()) {
-	case 0:
+	case 12:
 		lblTaillePolice.setFont(new Font("System", 12));
-	case 1:
+	case 14:
 		lblTaillePolice.setFont(new Font("System", 14));
-	case 2:
+	case 16:
 		lblTaillePolice.setFont(new Font("System", 16));
-	case 3:
+	case 18:
 		lblTaillePolice.setFont(new Font("System", 18));
-	case 4:
+	case 20:
 		lblTaillePolice.setFont(new Font("System", 20));
-	case 5:
+	case 22:
 		lblTaillePolice.setFont(new Font("System", 22));
 	default:
 		lblTaillePolice.setFont(new Font("System", 12));
 	}
-}
+}*/
 
 public void valider() {
 	option.setTaillePolice((int) sliderPolice.getValue());
