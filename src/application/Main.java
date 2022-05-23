@@ -18,7 +18,7 @@ public class Main extends Application {
 	@Override
 	public void init() {
 		try {
-			jeu = new GestionJeu("./Dictionnaires/Dico.txt");
+			jeu = new GestionJeu("./dictionnaires/Dico.txt");
 			option = new GestionOption();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());

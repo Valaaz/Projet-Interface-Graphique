@@ -1,13 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="lblMot" text="Label" />
-      <Button mnemonicParsing="false" onAction="#poserLettre" text="A" />
-      <Button layoutX="298.0" layoutY="206.0" mnemonicParsing="false" onAction="#poserLettre" text="B" />
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rejouer" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/bouton-de-lecture.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ouvrirParametres" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/parametres.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="10.0" mnemonicParsing="false" onAction="#ouvrirAide" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/aide.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitter" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/quitter.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+        </items>
+      </ToolBar>
+      <Label text="Le jeu du Pendu" underline="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblMsgJoueur" text="Label">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="lblMot" text="Label">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin></Label>
+      <Label fx:id="lblLettresRestantes" layoutX="296.0" layoutY="113.0" text="Label">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </ImageView>
+      <Label fx:id="lblMsgInterfactif" layoutX="296.0" layoutY="131.0" text="Label">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Label>
+      <GridPane alignment="CENTER" vgap="3.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="A" GridPane.halignment="LEFT" />
+            <Button minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="B" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button layoutX="70.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="C" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button layoutX="130.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="D" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="190.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="E" GridPane.columnIndex="2" GridPane.halignment="LEFT" />
+            <Button layoutX="250.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="F" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="310.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="G" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="370.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="H" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="430.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="I" GridPane.columnIndex="7" GridPane.halignment="LEFT" />
+            <Button layoutX="490.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="O" GridPane.columnIndex="8" GridPane.halignment="LEFT" />
+            <Button layoutX="550.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="Q" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="10.0" layoutY="43.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="Z" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
+            <Button layoutX="250.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="R" GridPane.columnIndex="3" GridPane.halignment="LEFT" />
+            <Button layoutX="310.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="T" GridPane.columnIndex="4" GridPane.halignment="LEFT" />
+            <Button layoutX="370.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="Y" GridPane.columnIndex="5" GridPane.halignment="LEFT" />
+            <Button layoutX="550.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="U" GridPane.columnIndex="6" GridPane.halignment="LEFT" />
+            <Button layoutX="490.0" layoutY="12.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="P" GridPane.columnIndex="9" GridPane.halignment="LEFT" />
+            <Button layoutX="10.0" layoutY="43.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="S" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="370.0" layoutY="73.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="K" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="370.0" layoutY="43.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="L" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="430.0" layoutY="43.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="M" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button layoutX="250.0" layoutY="73.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="X" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button layoutX="190.0" layoutY="73.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="W" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button layoutX="250.0" layoutY="73.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="V" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button layoutX="370.0" layoutY="73.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="N" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button layoutX="310.0" layoutY="43.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#poserLettre" prefHeight="30.0" prefWidth="30.0" text="J" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+         </children>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </GridPane>
    </children>
 </VBox>
