@@ -82,8 +82,9 @@ public class ControleurIntro {
 			System.out.println("Erreur");
 		}
 	}
+
 	@FXML
-	public void ouvrirPreferences() throws IOException{
+	public void ouvrirPreferences() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
 		dialog.setTitle("Choix");
