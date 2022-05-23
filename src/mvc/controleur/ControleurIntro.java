@@ -29,12 +29,16 @@ public class ControleurIntro {
 
 	@FXML
 	public void jouer(ActionEvent event) {
+		jeu.InitialiserPartie();
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/jeu.fxml"));
+		FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
 		ControleurJeu contJeu = new ControleurJeu(jeu, option);
 		loader.setController(contJeu);
 
 		try {
 			VBox jeu = loader.load();
+			jeu.getChildren().add(0, toolbar.load());
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(new Scene(jeu));
 		} catch (IOException e) {
