@@ -25,7 +25,7 @@ public class GestionOption {
 		this.theme = "Tous les thèmes";
 		this.difficulte = "Moyen";
 		this.modeSombre = false;
-		this.taillePolice = 12;
+		this.taillePolice = 0;
 		this.skinPendu = 0;
 	}
 
@@ -75,6 +75,8 @@ public class GestionOption {
 
 	@Override
 	public String toString() {
-		return "GestionOption [theme=" + theme + ", difficulte=" + difficulte + "]";
+		return "GestionOption [theme=" + theme + ", difficulte=" + difficulte + ", modeSombre=" + modeSombre
+				+ ", taillePolice=" + taillePolice + ", skinPendu=" + skinPendu + "]";
 	}
+
 }

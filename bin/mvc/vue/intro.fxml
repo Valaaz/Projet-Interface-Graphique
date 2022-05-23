@@ -7,5 +7,6 @@
    <children>
       <Button mnemonicParsing="false" onAction="#jouer" text="Jouer" />
       <Button mnemonicParsing="false" onAction="#ouvrirParametres" text="Paramètres" />
+      <Button mnemonicParsing="false" onAction="#ouvrirPreferences" text="Préférences"/>
    </children>
 </HBox>
