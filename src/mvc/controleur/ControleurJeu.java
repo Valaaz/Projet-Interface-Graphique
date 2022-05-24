@@ -64,7 +64,7 @@ public class ControleurJeu {
 			btn.setDisable(true);
 			// lblMsgInteractif.setText("Dommage " + jeu.getNomJoueur() + ", c'était une
 			// mauvaise lettre !");
-			jeu.setNbErreurs(jeu.getNbErreurs() + 1);
+			jeu.MAJNbErreurs();
 			lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
 		}
 
@@ -84,6 +84,7 @@ public class ControleurJeu {
 			Stage stage = (Stage) lblMot.getScene().getWindow();
 			stage.setScene(new Scene(root));
 		}
+
 		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
 			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
