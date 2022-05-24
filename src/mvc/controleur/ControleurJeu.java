@@ -1,5 +1,7 @@
 package mvc.controleur;
 
+import java.util.Vector;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +15,7 @@ public class ControleurJeu {
 	private String[] lettresTrouvees;
 
 	@FXML
-	Label lblMot, lblLettresRestantes, lblMsgInterfactif, lblMsgJoueur;
+	Label lblMot, lblLettresRestantes, lblMsgInteractif, lblMsgJoueur;
 
 	public ControleurJeu(GestionJeu jeu, GestionOption option) {
 		super();
@@ -32,7 +34,7 @@ public class ControleurJeu {
 		lblMsgJoueur
 				.setText("A toi de jouer " + jeu.getNomJoueur() + ", rentre une lettre pour voir si elle est valide");
 
-		lblLettresRestantes.setText("Lettre(s) restante(s) : " + getNombreLettresRestantes());
+		afficherNombreLettresRestantes();
 //		System.out.println(option.toString());
 //		jeu.AffErreurs();
 		System.out.println(jeu.getMotMystere());
@@ -40,12 +42,31 @@ public class ControleurJeu {
 
 	@FXML
 	void poserLettre(ActionEvent event) {
-		String textBtn = ((Button) event.getSource()).getText();
-		afficherLettresMot(textBtn);
+		Button btn = ((Button) event.getSource());
+		String lettre = btn.getText();
+		char l = lettre.charAt(0);
+
+		Vector<Integer> v = new Vector<Integer>();
+		if (jeu.ChercherLettreDansMot(l, v) != 0) {
+			afficherLettresMot(lettre);
+			btn.setStyle("-fx-background-color: #00CC00");
+			btn.setDisable(true);
+			lblMsgInteractif.setText("Bravo " + jeu.getNomJoueur() + ", tu as trouvé une lettre !");
+		} else {
+			btn.setStyle("-fx-background-color: #CCCCCC");
+			btn.setDisable(true);
+			lblMsgInteractif.setText("Dommage " + jeu.getNomJoueur() + ", c'était une mauvaise lettre !");
+		}
+
+		afficherNombreLettresRestantes();
 	}
 
 	private int getNombreLettresRestantes() {
 		return jeu.getMotMystere().length() - jeu.getNbLettresTrouvees();
+	}
+
+	private void afficherNombreLettresRestantes() {
+		lblLettresRestantes.setText("Lettre(s) restante(s) : " + getNombreLettresRestantes());
 	}
 
 	private void afficherLettresMot(String lettre) {

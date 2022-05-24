@@ -39,7 +39,7 @@
             <Insets top="15.0" />
          </VBox.margin>
       </ImageView>
-      <Label fx:id="lblMsgInterfactif" layoutX="296.0" layoutY="131.0" text="Label">
+      <Label fx:id="lblMsgInteractif" layoutX="296.0" layoutY="131.0">
          <VBox.margin>
             <Insets top="15.0" />
          </VBox.margin>
