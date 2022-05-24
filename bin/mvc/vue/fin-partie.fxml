@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../application/application.css" style="-fx-background-color: #E8F9FD;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E8F9FD;" stylesheets="@../../application/application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="100.0" />
@@ -36,7 +36,7 @@
             <Insets bottom="75.0" right="65.0" />
          </GridPane.margin>
       </ImageView>
-      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets top="80.0" />
          </GridPane.margin>
