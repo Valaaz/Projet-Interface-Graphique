@@ -58,7 +58,7 @@
          <graphic>
             <ImageView fitHeight="53.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/Pendue%20image/APerdu.png" />
+                  <Image url="@../../../images/Pendue_image/APerdu.png" />
                </image></ImageView>
          </graphic>
       </RadioButton>
@@ -66,7 +66,7 @@
          <graphic>
             <ImageView fitHeight="62.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/Pendue%20image/BPerdu.png" />
+                  <Image url="@../../../images/Pendue_image/BPerdu.png" />
                </image></ImageView>
          </graphic>
       </RadioButton>

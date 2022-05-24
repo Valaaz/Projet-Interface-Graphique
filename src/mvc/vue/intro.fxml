@@ -101,7 +101,7 @@
          </GridPane.margin></TextField>
       <ImageView fitHeight="162.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE">
          <image>
-            <Image url="@../../../images/Pendue%20image/AGagner.png" />
+            <Image url="@../../../images/Pendue_image/AGagner.png" />
          </image>
          <GridPane.margin>
             <Insets top="30.0" />
