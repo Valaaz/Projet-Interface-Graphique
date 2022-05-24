@@ -3,23 +3,20 @@ package mvc.controleur;
 import java.io.IOException;
 import java.util.Optional;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import mvc.modele.GestionJeu;
 import mvc.modele.GestionOption;
@@ -27,10 +24,10 @@ import mvc.modele.GestionOption;
 public class ControleurIntro {
 	private GestionJeu jeu;
 	private GestionOption option;
-	
+
 	@FXML
 	private TextField textPseudoIntro;
-	
+
 	@FXML
 	private Button btnJouer;
 
@@ -39,23 +36,21 @@ public class ControleurIntro {
 		this.jeu = jeu;
 		this.option = option;
 	}
-	
+
 	@FXML
 	public void initialize() {
-		if(textPseudoIntro.getText().trim() == "") {
+		if (textPseudoIntro.getText().trim() == "") {
 			btnJouer.setDisable(true);
-		}
-		else {
+		} else {
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
 			btnJouer.setDisable(false);
 		}
-		
-		textPseudoIntro.textProperty().addListener((observable) ->{
+
+		textPseudoIntro.textProperty().addListener((observable) -> {
 			jeu.setNomJoueur(textPseudoIntro.getText().trim());
-			if(textPseudoIntro.getText().trim() == "") {
+			if (textPseudoIntro.getText().trim() == "") {
 				btnJouer.setDisable(true);
-			}
-			else {
+			} else {
 				btnJouer.setDisable(false);
 			}
 		});
@@ -120,6 +115,7 @@ public class ControleurIntro {
 			System.out.println("Erreur");
 		}
 	}
+
 	public void ouvrirAide() {
 		String info = "Règles :\n\n"
 				+ "Pour gagner, le joueur doit trouver le mot caché en proposant différentes lettres.\n"
@@ -135,6 +131,7 @@ public class ControleurIntro {
 		aide.setHeight(900);
 		aide.show();
 	}
+
 	public void quitter() {
 		System.exit(0);
 	}

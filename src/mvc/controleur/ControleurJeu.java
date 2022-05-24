@@ -56,16 +56,13 @@ public class ControleurJeu {
 			afficherLettresMot(lettre);
 			btn.setStyle("-fx-background-color: #00CC00");
 			btn.setDisable(true);
-			// lblMsgInteractif.setText("Bravo " + jeu.getNomJoueur() + ", tu as trouvé une
-			// lettre !");
-			lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
+			lblMsgInteractif.setText("Bravo " + jeu.getNomJoueur() + ", tu as trouvé une lettre !");
 		} else {
 			btn.setStyle("-fx-background-color: #CCCCCC");
 			btn.setDisable(true);
-			// lblMsgInteractif.setText("Dommage " + jeu.getNomJoueur() + ", c'était une
-			// mauvaise lettre !");
 			jeu.MAJNbErreurs();
-			lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
+			lblMsgInteractif.setText(
+					"Dommage ! Tu as encore le droit à " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()) + " erreurs");
 		}
 
 		afficherNombreLettresRestantes();
