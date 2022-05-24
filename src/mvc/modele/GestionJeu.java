@@ -234,7 +234,6 @@ public class GestionJeu {
 	 * @return indique si le joueur a deviné toutes les lettres du mot à deviner
 	 */
 	public boolean ToutTrouve() {
-
 		return (this.nbLettresTrouvees == this.motMystere.length());
 	}
 
