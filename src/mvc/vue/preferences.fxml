@@ -35,10 +35,10 @@
       <Label text="Changer le pseudo :" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <TextField fx:id="textPseudo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Label alignment="CENTER" text="Taille du texte" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Slider fx:id="sliderPolice" blockIncrement="2.0" majorTickUnit="2.0" max="22.0" min="12.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Slider fx:id="sliderPolice" blockIncrement="2.0" majorTickUnit="2.0" max="16.0" min="12.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Label text="aA" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <font>
-            <Font size="22.0" />
+            <Font size="16.0" />
          </font>
          <GridPane.margin>
             <Insets left="10.0" />
