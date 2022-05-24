@@ -9,8 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -85,6 +87,20 @@ public class ControleurIntro {
 		} else {
 			System.out.println("Erreur");
 		}
+	}
+	public void ouvrirAide() {
+		String info = "Règles :\n\n"
+				+ "Pour gagner, le joueur doit trouver le mot caché en proposant différentes lettres.\n"
+				+ "Si le joueur se trompe plus de 5 fois alors, la partie est perdue." + "\n\nAide au jeu :\n\n"
+				+ "Pour sélectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
+				+ "Vous pouvez également taper avec le clavier pour sélectionner les lettres du clavier virtuel"
+				+ "\n\nSupport :\n\n" + "Tel : 06 42 86 57 38\n" + "e-mail : Antoine.scanu1@gmail.com";
+
+		Alert aide = new Alert(AlertType.INFORMATION);
+		aide.setHeaderText("Règles");
+		aide.setContentText(info);
+		aide.setHeight(600);
+		aide.show();
 	}
 
 	@FXML
