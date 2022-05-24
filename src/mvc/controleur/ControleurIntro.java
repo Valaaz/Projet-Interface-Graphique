@@ -102,6 +102,9 @@ public class ControleurIntro {
 		aide.setHeight(600);
 		aide.show();
 	}
+	public void quitter() {
+		System.exit(0);
+	}
 
 	@FXML
 	public void ouvrirPreferences() throws IOException {
