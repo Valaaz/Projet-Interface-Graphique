@@ -22,10 +22,13 @@
             <Insets top="15.0" />
          </VBox.margin>
       </Label>
-      <Label fx:id="lblMot" text="Label">
+      <Label fx:id="lblMot" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="283.0" text="Label" textAlignment="CENTER">
          <VBox.margin>
             <Insets top="15.0" />
-         </VBox.margin></Label>
+         </VBox.margin>
+         <font>
+            <Font size="16.0" />
+         </font></Label>
       <Label fx:id="lblLettresRestantes" layoutX="296.0" layoutY="113.0" text="Label">
          <VBox.margin>
             <Insets top="15.0" />

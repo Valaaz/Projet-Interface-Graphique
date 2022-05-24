@@ -5,7 +5,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import mvc.controleur.ControleurIntro;
 import mvc.modele.GestionJeu;
@@ -34,8 +34,8 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/intro.fxml"));
 			ControleurIntro contIntro = new ControleurIntro(jeu, option);
 			loader.setController(contIntro);
-			HBox root = loader.load();
-			Scene scene = new Scene(root, 400, 400);
+			GridPane root = loader.load();
+			Scene scene = new Scene(root);
 
 			primaryStage.setScene(scene);
 			primaryStage.show();
