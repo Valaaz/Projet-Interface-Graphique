@@ -80,13 +80,21 @@ public class ControleurJeu {
 			loader.setController(contFinPartie);
 
 			GridPane root = loader.load();
-			// root.getChildren().add(0, toolbar.load());
 			root.add(toolbar.load(), 0, 0, 3, 1);
 			Stage stage = (Stage) lblMot.getScene().getWindow();
 			stage.setScene(new Scene(root));
 		}
-		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs())
-			System.out.println("Perdu !");
+		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
+			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
+			ControleurFinPartie contFinPartie = new ControleurFinPartie();
+			loader.setController(contFinPartie);
+
+			GridPane root = loader.load();
+			root.add(toolbar.load(), 0, 0, 3, 1);
+			Stage stage = (Stage) lblMot.getScene().getWindow();
+			stage.setScene(new Scene(root));
+		}
 	}
 
 	private int getNombreLettresRestantes() {
