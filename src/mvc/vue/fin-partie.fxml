@@ -15,11 +15,12 @@
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER">
          <image>
             <Image url="@../../../images/Pendue%20image/APerdu.png" />
          </image>
@@ -27,7 +28,7 @@
             <Insets top="20.0" />
          </GridPane.margin>
       </ImageView>
-      <ImageView fitHeight="162.0" fitWidth="208.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+      <ImageView fitHeight="162.0" fitWidth="208.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <image>
             <Image url="@../../../images/dialogue.png" />
          </image>
@@ -35,12 +36,12 @@
             <Insets bottom="20.0" right="65.0" />
          </GridPane.margin>
       </ImageView>
-      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets top="80.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="95.0" prefWidth="176.0" text="NON &quot;Joueur&quot; ! Tu as échoué mais rien n'est perdu, tu peux réessayer" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+      <Label prefHeight="95.0" prefWidth="176.0" text="NON &quot;Joueur&quot; ! Tu as échoué mais rien n'est perdu, tu peux réessayer" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="50.0" right="60.0" />
          </GridPane.margin>

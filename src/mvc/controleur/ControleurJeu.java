@@ -1,11 +1,16 @@
 package mvc.controleur;
 
+import java.io.IOException;
 import java.util.Vector;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import mvc.modele.GestionJeu;
 import mvc.modele.GestionOption;
 
@@ -35,13 +40,13 @@ public class ControleurJeu {
 				.setText("A toi de jouer " + jeu.getNomJoueur() + ", rentre une lettre pour voir si elle est valide");
 
 		afficherNombreLettresRestantes();
-//		System.out.println(option.toString());
-//		jeu.AffErreurs();
 		System.out.println(jeu.getMotMystere());
+
+		lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
 	}
 
 	@FXML
-	void poserLettre(ActionEvent event) {
+	void poserLettre(ActionEvent event) throws IOException {
 		Button btn = ((Button) event.getSource());
 		String lettre = btn.getText();
 		char l = lettre.charAt(0);
@@ -51,14 +56,46 @@ public class ControleurJeu {
 			afficherLettresMot(lettre);
 			btn.setStyle("-fx-background-color: #00CC00");
 			btn.setDisable(true);
-			lblMsgInteractif.setText("Bravo " + jeu.getNomJoueur() + ", tu as trouvé une lettre !");
+			// lblMsgInteractif.setText("Bravo " + jeu.getNomJoueur() + ", tu as trouvé une
+			// lettre !");
+			lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
 		} else {
 			btn.setStyle("-fx-background-color: #CCCCCC");
 			btn.setDisable(true);
-			lblMsgInteractif.setText("Dommage " + jeu.getNomJoueur() + ", c'était une mauvaise lettre !");
+			// lblMsgInteractif.setText("Dommage " + jeu.getNomJoueur() + ", c'était une
+			// mauvaise lettre !");
+			jeu.MAJNbErreurs();
+			lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
 		}
 
 		afficherNombreLettresRestantes();
+		verifierVictoire();
+	}
+
+	private void verifierVictoire() throws IOException {
+		if (jeu.ToutTrouve()) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
+			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
+			ControleurFinPartie contFinPartie = new ControleurFinPartie();
+			loader.setController(contFinPartie);
+
+			GridPane root = loader.load();
+			root.add(toolbar.load(), 0, 0, 3, 1);
+			Stage stage = (Stage) lblMot.getScene().getWindow();
+			stage.setScene(new Scene(root));
+		}
+
+		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
+			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
+			ControleurFinPartie contFinPartie = new ControleurFinPartie();
+			loader.setController(contFinPartie);
+
+			GridPane root = loader.load();
+			root.add(toolbar.load(), 0, 0, 3, 1);
+			Stage stage = (Stage) lblMot.getScene().getWindow();
+			stage.setScene(new Scene(root));
+		}
 	}
 
 	private int getNombreLettresRestantes() {
