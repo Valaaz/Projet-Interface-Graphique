@@ -19,16 +19,16 @@ public class ControleurPreferences {
 	private ToggleGroup groupeSkin;
 
 	@FXML
-	CheckBox cBoxSombre;
+	private CheckBox cBoxSombre;
 
 	@FXML
-	Slider sliderPolice;
+	private Slider sliderPolice;
 
 	@FXML
-	TextField textPseudo;
+	private TextField textPseudo;
 
 	@FXML
-	Label lblTaillePolice;
+	private Label lblTaillePolice;
 
 	@FXML
 	private RadioButton radioBtnSkinSimple, radioBtnSkinAvance;
@@ -67,43 +67,23 @@ public class ControleurPreferences {
 		case 16:
 			sliderPolice.setValue(16);
 			break;
-		case 18:
-			sliderPolice.setValue(18);
-			break;
-		case 20:
-			sliderPolice.setValue(20);
-			break;
-		case 22:
-			sliderPolice.setValue(22);
-			break;
 		default:
 			sliderPolice.setValue(12);
 			break;
 		}
 
 		if (!jeu.getNomJoueur().isEmpty()) {
-			textPseudo.setText(jeu.getNomJoueur());
-		} else {
-			textPseudo.setText("Joueur1");
+			textPseudo.setText(jeu.getNomJoueur().trim());
 		}
-
+		else {
+			textPseudo.setPromptText("Entrez un pseudo");
+		}
 		sliderPolice.valueProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
 				lblTaillePolice.setFont(new Font("System", (double) newValue));
 			}
 		});
 	}
-
-	/*
-	 * public void setLabelPolice() { switch((int)sliderPolice.getValue()) { case
-	 * 12: lblTaillePolice.setFont(new Font("System", 12)); case 14:
-	 * lblTaillePolice.setFont(new Font("System", 14)); case 16:
-	 * lblTaillePolice.setFont(new Font("System", 16)); case 18:
-	 * lblTaillePolice.setFont(new Font("System", 18)); case 20:
-	 * lblTaillePolice.setFont(new Font("System", 20)); case 22:
-	 * lblTaillePolice.setFont(new Font("System", 22)); default:
-	 * lblTaillePolice.setFont(new Font("System", 12)); } }
-	 */
 
 	public void valider() {
 		option.setTaillePolice((int) sliderPolice.getValue());
@@ -125,6 +105,15 @@ public class ControleurPreferences {
 			return 0;
 		} else {
 			return 1;
+		}
+	}
+	
+	public boolean nomJoueurEstVide() {
+		if (textPseudo.getText().trim() == "") {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 

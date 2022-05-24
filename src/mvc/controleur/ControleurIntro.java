@@ -3,6 +3,8 @@ package mvc.controleur;
 import java.io.IOException;
 import java.util.Optional;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +14,12 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import mvc.modele.GestionJeu;
 import mvc.modele.GestionOption;
@@ -22,11 +27,38 @@ import mvc.modele.GestionOption;
 public class ControleurIntro {
 	private GestionJeu jeu;
 	private GestionOption option;
+	
+	@FXML
+	private TextField textPseudoIntro;
+	
+	@FXML
+	private Button btnJouer;
 
 	public ControleurIntro(GestionJeu jeu, GestionOption option) {
 		super();
 		this.jeu = jeu;
 		this.option = option;
+	}
+	
+	@FXML
+	public void initialize() {
+		if(textPseudoIntro.getText().trim() == "") {
+			btnJouer.setDisable(true);
+		}
+		else {
+			textPseudoIntro.setText(jeu.getNomJoueur().trim());
+			btnJouer.setDisable(false);
+		}
+		
+		textPseudoIntro.textProperty().addListener((observable) ->{
+			jeu.setNomJoueur(textPseudoIntro.getText().trim());
+			if(textPseudoIntro.getText().trim() == "") {
+				btnJouer.setDisable(true);
+			}
+			else {
+				btnJouer.setDisable(false);
+			}
+		});
 	}
 
 	@FXML
@@ -138,8 +170,10 @@ public class ControleurIntro {
 			contPreferences.valider();
 			System.out.println(option.toString());
 			jeu.AffErreurs();
+			textPseudoIntro.setText(jeu.getNomJoueur().trim());
 		} else if (result.get() == buttonTypeRes) {
 			ouvrirPreferences();
+			textPseudoIntro.setText(jeu.getNomJoueur().trim());
 		} else if (result.get() == buttonTypeAnnuler) {
 			dialog.close();
 		} else {

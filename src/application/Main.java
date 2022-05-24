@@ -36,6 +36,7 @@ public class Main extends Application {
 			loader.setController(contIntro);
 			GridPane root = loader.load();
 			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			primaryStage.setScene(scene);
 			primaryStage.show();

@@ -1,3 +1,6 @@
 #btnType {
     -fx-pref-height: 50px
 }
+Label{
+	-fx-font-size : 16px
+}
