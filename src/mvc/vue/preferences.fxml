@@ -50,7 +50,7 @@
          </GridPane.margin>
       </Label>
       <Label fx:id="lblTaillePolice" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="134.0" text="Taille de la police" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-      <Label text="Skin du pendu" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      <Label text="Apparence du pendu" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
       <RadioButton fx:id="radioBtnSkinSimple" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
          <graphic>
             <ImageView fitHeight="53.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">

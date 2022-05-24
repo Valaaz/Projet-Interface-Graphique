@@ -5,9 +5,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 
-<ToolBar prefHeight="40.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.controleur.ControleurToolBar">
+<ToolBar prefHeight="40.0" prefWidth="281.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.controleur.ControleurToolBar">
    <items>
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rejouer" prefHeight="40.0" prefWidth="40.0">
+      <Button fx:id="btnJouer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rejouer" prefHeight="40.0" prefWidth="40.0">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -16,7 +16,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ouvrirParametres" prefHeight="40.0" prefWidth="40.0">
+      <Button fx:id="btnParametres" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ouvrirParametres" prefHeight="40.0" prefWidth="40.0">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,7 +25,16 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="10.0" mnemonicParsing="false" onAction="#ouvrirAide" prefHeight="40.0" prefWidth="40.0">
+      <Button fx:id="btnPreferences" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="10.0" mnemonicParsing="false" onAction="#ouvrirPreferences" prefHeight="40.0" prefWidth="40.0">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/preferences.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnAide" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="10.0" mnemonicParsing="false" onAction="#ouvrirAide" prefHeight="40.0" prefWidth="40.0">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,7 +43,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitter" prefHeight="40.0" prefWidth="40.0">
+      <Button fx:id="btnQuitter" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="10.0" mnemonicParsing="false" onAction="#quitter" prefHeight="40.0" prefWidth="40.0">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
