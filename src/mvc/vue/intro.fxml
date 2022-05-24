@@ -78,7 +78,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button minHeight="30.0" minWidth="85.0" mnemonicParsing="false" onAction="#jouer" style="-fx-background-color: #99CCFF;" text="Jouer" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+      <Button fx:id="btnJouer" minHeight="30.0" minWidth="85.0" mnemonicParsing="false" onAction="#jouer" style="-fx-background-color: #99CCFF;" text="Jouer" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="10.0" />
          </GridPane.margin>
@@ -95,7 +95,7 @@
             <Insets right="35.0" top="30.0" />
          </GridPane.margin>
       </Label>
-      <TextField maxWidth="168.0" prefHeight="25.0" prefWidth="168.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <TextField fx:id="textPseudoIntro" maxWidth="168.0" prefHeight="25.0" prefWidth="168.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets top="30.0" />
          </GridPane.margin></TextField>
