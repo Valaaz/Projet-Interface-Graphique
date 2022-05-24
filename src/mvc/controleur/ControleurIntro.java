@@ -131,7 +131,8 @@ public class ControleurIntro {
 		Alert aide = new Alert(AlertType.INFORMATION);
 		aide.setHeaderText("Règles");
 		aide.setContentText(info);
-		aide.setHeight(600);
+		aide.getDialogPane().getStylesheets().add("./application/application.css");
+		aide.setHeight(900);
 		aide.show();
 	}
 	public void quitter() {

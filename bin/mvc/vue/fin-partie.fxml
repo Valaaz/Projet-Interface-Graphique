@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E8F9FD;" stylesheets="@../../application/application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <Label fx:id="msgFinPartie" text="Label" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+         <image>
+            <Image url="@../../../images/Pendue%20image/APerdu.png" />
+         </image>
+         <GridPane.margin>
+            <Insets top="20.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fitHeight="162.0" fitWidth="208.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+         <image>
+            <Image url="@../../../images/dialogue.png" />
+         </image>
+         <GridPane.margin>
+            <Insets bottom="20.0" right="65.0" />
+         </GridPane.margin>
+      </ImageView>
+      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets top="80.0" />
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="95.0" prefWidth="176.0" text="NON &quot;Joueur&quot; ! Tu as échoué mais rien n'est perdu, tu peux réessayer" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+         <GridPane.margin>
+            <Insets bottom="50.0" right="60.0" />
+         </GridPane.margin>
+      </Label>
    </children>
-</VBox>
+</GridPane>
