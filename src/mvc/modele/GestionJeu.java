@@ -279,9 +279,4 @@ public class GestionJeu {
 		}
 		return nbpos;
 	}
-
-	public void AffErreurs() {
-		System.out.println("Nb erreurs max=" + getNbMaxErreurs());
-	}
-
 }

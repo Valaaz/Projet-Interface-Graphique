@@ -23,9 +23,6 @@ public class Main extends Application {
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
-
-		System.out.println(option.toString());
-		jeu.AffErreurs();
 	}
 
 	@Override
@@ -36,26 +33,21 @@ public class Main extends Application {
 			loader.setController(contIntro);
 			GridPane root = loader.load();
 			Scene scene = new Scene(root);
-			
-			if(option.isModeSombre()) {
-				if(option.getTaillePolice() == 12) {
+
+			if (option.isModeSombre()) {
+				if (option.getTaillePolice() == 12) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
-				}
-				else if(option.getTaillePolice() == 14) {
+				} else if (option.getTaillePolice() == 14) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-				}
-				else {
+				} else {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
 				}
-			}
-			else {
-				if(option.getTaillePolice() == 12) {
+			} else {
+				if (option.getTaillePolice() == 12) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-				}
-				else if(option.getTaillePolice() == 14) {
+				} else if (option.getTaillePolice() == 14) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-				}
-				else {
+				} else {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 				}
 			}
