@@ -18,16 +18,16 @@ import mvc.modele.GestionJeu;
 import mvc.modele.GestionOption;
 
 public class ControleurToolBar {
-	
+
 	private GestionJeu jeu;
 	private GestionOption option;
-	
+
 	public ControleurToolBar(GestionJeu jeu, GestionOption option) {
 		super();
 		this.jeu = jeu;
 		this.option = option;
 	}
-	
+
 	@FXML
 	private Button btnJouer, btnParametres, btnPreferences, btnAide, btnQuitter;
 
@@ -42,7 +42,9 @@ public class ControleurToolBar {
 
 	@FXML
 	public void rejouer() {
-		System.exit(0);
+//		jeu.InitialiserPartie();
+//		ControleurJeu contJeu = new ControleurJeu(jeu, option);
+//		contJeu.reset();
 	}
 
 	@FXML
@@ -122,27 +124,28 @@ public class ControleurToolBar {
 
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
-	
-		if(option.isModeSombre()) {
-			if(option.getTaillePolice() == 12) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+
+		if (option.isModeSombre()) {
+			if (option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+			} else {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
 			}
-			else if(option.getTaillePolice() == 14) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-			}
-			else {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
-			}
-		}
-		else {
-			if(option.getTaillePolice() == 12) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-			}
-			else if(option.getTaillePolice() == 14) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-			}
-			else {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		} else {
+			if (option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+			} else {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 			}
 		}
 
@@ -184,26 +187,27 @@ public class ControleurToolBar {
 		Alert aide = new Alert(AlertType.INFORMATION);
 		aide.setHeaderText("Règles");
 		aide.setContentText(info);
-		if(option.isModeSombre()) {
-			if(option.getTaillePolice() == 12) {
-				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+		if (option.isModeSombre()) {
+			if (option.getTaillePolice() == 12) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+			} else {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
 			}
-			else if(option.getTaillePolice() == 14) {
-				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-			}
-			else {
-				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
-			}
-		}
-		else {
-			if(option.getTaillePolice() == 12) {
-				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-			}
-			else if(option.getTaillePolice() == 14) {
-				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-			}
-			else {
-				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		} else {
+			if (option.getTaillePolice() == 12) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+			} else {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 			}
 		}
 		aide.setHeight(900);
