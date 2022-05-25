@@ -109,7 +109,7 @@ public class ControleurJeu {
 		if (jeu.ToutTrouve()) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
 			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
-			ControleurFinPartie contFinPartie = new ControleurFinPartie();
+			ControleurFinPartie contFinPartie = new ControleurFinPartie(jeu, option);
 			loader.setController(contFinPartie);
 			ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
 			toolbar.setController(contToolBar);
@@ -141,7 +141,7 @@ public class ControleurJeu {
 		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
 			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
-			ControleurFinPartie contFinPartie = new ControleurFinPartie();
+			ControleurFinPartie contFinPartie = new ControleurFinPartie(jeu, option);
 			loader.setController(contFinPartie);
 			ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
 			toolbar.setController(contToolBar);
