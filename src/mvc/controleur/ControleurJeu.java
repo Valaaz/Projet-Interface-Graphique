@@ -6,10 +6,14 @@ import java.util.Vector;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import mvc.modele.GestionJeu;
 import mvc.modele.GestionOption;
 
@@ -18,12 +22,16 @@ public class ControleurJeu {
 	private GestionOption option;
 	private String[] lettresTrouvees;
 	private ArrayList<Image> listeImagesPendu;
+	private String skin;
 
 	@FXML
 	private Label lblMot, lblLettresRestantes, lblMsgInteractif, lblMsgJoueur;
 
 	@FXML
 	private ImageView imgPendu;
+
+	@FXML
+	private GridPane clavier;
 
 	public ControleurJeu(GestionJeu jeu, GestionOption option) {
 		super();
@@ -49,7 +57,6 @@ public class ControleurJeu {
 		// initialisation de la liste d'images du pendu
 		listeImagesPendu = new ArrayList<Image>();
 
-		String skin;
 		if (option.getSkinPendu() == 0)
 			skin = "A";
 		else
@@ -98,75 +105,71 @@ public class ControleurJeu {
 		verifierVictoire();
 	}
 
-	private void verifierVictoire() {
+	private void verifierVictoire() throws IOException {
+		if (jeu.ToutTrouve()) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
+			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
+			ControleurFinPartie contFinPartie = new ControleurFinPartie();
+			loader.setController(contFinPartie);
+			ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
+			toolbar.setController(contToolBar);
 
+			GridPane root = loader.load();
+			root.add(toolbar.load(), 0, 0, 3, 1);
+			Stage stage = (Stage) lblMot.getScene().getWindow();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			if (option.isModeSombre()) {
+				if (option.getTaillePolice() == 12) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+				} else if (option.getTaillePolice() == 14) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+				} else {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
+				}
+			} else {
+				if (option.getTaillePolice() == 12) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+				} else if (option.getTaillePolice() == 14) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+				} else {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+				}
+			}
+		}
+
+		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
+			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
+			ControleurFinPartie contFinPartie = new ControleurFinPartie();
+			loader.setController(contFinPartie);
+			ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
+			toolbar.setController(contToolBar);
+
+			GridPane root = loader.load();
+			root.add(toolbar.load(), 0, 0, 3, 1);
+			Stage stage = (Stage) lblMot.getScene().getWindow();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			if (option.isModeSombre()) {
+				if (option.getTaillePolice() == 12) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+				} else if (option.getTaillePolice() == 14) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+				} else {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
+				}
+			} else {
+				if (option.getTaillePolice() == 12) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+				} else if (option.getTaillePolice() == 14) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+				} else {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+				}
+			}
+		}
 	}
-
-//	private void verifierVictoire() throws IOException {
-//		if (jeu.ToutTrouve()) {
-//			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
-//			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
-//			ControleurFinPartie contFinPartie = new ControleurFinPartie();
-//			loader.setController(contFinPartie);
-//			ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
-//			toolbar.setController(contToolBar);
-//
-//			GridPane root = loader.load();
-//			root.add(toolbar.load(), 0, 0, 3, 1);
-//			Stage stage = (Stage) lblMot.getScene().getWindow();
-//			Scene scene = new Scene(root);
-//			stage.setScene(scene);
-//			if (option.isModeSombre()) {
-//				if (option.getTaillePolice() == 12) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
-//				} else if (option.getTaillePolice() == 14) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-//				} else {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
-//				}
-//			} else {
-//				if (option.getTaillePolice() == 12) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-//				} else if (option.getTaillePolice() == 14) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-//				} else {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
-//				}
-//			}
-//		}
-//
-//		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
-//			FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/fin-partie.fxml"));
-//			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
-//			ControleurFinPartie contFinPartie = new ControleurFinPartie();
-//			loader.setController(contFinPartie);
-//			ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
-//			toolbar.setController(contToolBar);
-//
-//			GridPane root = loader.load();
-//			root.add(toolbar.load(), 0, 0, 3, 1);
-//			Stage stage = (Stage) lblMot.getScene().getWindow();
-//			Scene scene = new Scene(root);
-//			stage.setScene(scene);
-//			if (option.isModeSombre()) {
-//				if (option.getTaillePolice() == 12) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
-//				} else if (option.getTaillePolice() == 14) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-//				} else {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
-//				}
-//			} else {
-//				if (option.getTaillePolice() == 12) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-//				} else if (option.getTaillePolice() == 14) {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-//				} else {
-//					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
-//				}
-//			}
-//		}
-//	}
 
 	private int getNombreLettresRestantes() {
 		return jeu.getMotMystere().length() - jeu.getNbLettresTrouvees();

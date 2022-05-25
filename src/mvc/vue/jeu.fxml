@@ -44,7 +44,7 @@
             <Insets top="15.0" />
          </VBox.margin>
       </Label>
-      <GridPane alignment="CENTER" vgap="3.0">
+      <GridPane fx:id="clavier" alignment="CENTER" vgap="3.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="35.0" />
