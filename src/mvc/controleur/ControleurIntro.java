@@ -68,7 +68,7 @@ public class ControleurIntro {
 	}
 
 	@FXML
-	public void jouer(ActionEvent event) {
+	public void jouer(ActionEvent event) throws IOException {
 		jeu.InitialiserPartie();
 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/jeu.fxml"));
@@ -98,7 +98,7 @@ public class ControleurIntro {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
 		dialog.setTitle("Choix");
-		dialog.setHeaderText("Paramètres");
+		dialog.setHeaderText("Parametres");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/parametres.fxml"));
 
 		ControleurParametres contParametres = new ControleurParametres(jeu, option);
@@ -114,7 +114,7 @@ public class ControleurIntro {
 		}
 	
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
-		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
+		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar defaut", ButtonData.LEFT);
 		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
@@ -141,15 +141,15 @@ public class ControleurIntro {
 	}
 
 	public void ouvrirAide() {
-		String info = "Règles :\n\n"
-				+ "Pour gagner, le joueur doit trouver le mot caché en proposant différentes lettres.\n"
+		String info = "Regles :\n\n"
+				+ "Pour gagner, le joueur doit trouver le mot cache en proposant differentes lettres.\n"
 				+ "Si le joueur se trompe plus de 5 fois alors, la partie est perdue." + "\n\nAide au jeu :\n\n"
-				+ "Pour sélectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
-				+ "Vous pouvez également taper avec le clavier pour sélectionner les lettres du clavier virtuel"
+				+ "Pour selectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
+				+ "Vous pouvez egalement taper avec le clavier pour selectionner les lettres du clavier virtuel"
 				+ "\n\nSupport :\n\n" + "Tel : 06 42 86 57 38\n" + "e-mail : Antoine.scanu1@gmail.com";
 
 		Alert aide = new Alert(AlertType.INFORMATION);
-		aide.setHeaderText("Règles");
+		aide.setHeaderText("Regles");
 		aide.setContentText(info);
 		if(option.isModeSombre()) {
 			aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
@@ -170,7 +170,7 @@ public class ControleurIntro {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
 		dialog.setTitle("Choix");
-		dialog.setHeaderText("Préférences");
+		dialog.setHeaderText("Preferences");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/preferences.fxml"));
 
 		ControleurPreferences contPreferences = new ControleurPreferences(jeu, option);
@@ -186,7 +186,7 @@ public class ControleurIntro {
 		}
 
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
-		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
+		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar defaut", ButtonData.LEFT);
 		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
