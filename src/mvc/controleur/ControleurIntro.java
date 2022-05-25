@@ -72,16 +72,15 @@ public class ControleurIntro {
 		});
 		textPseudoIntro.lengthProperty().addListener(new ChangeListener<Number>() {
 			@Override
-			public void changed(ObservableValue<? extends Number> observable,
-			Number oldValue, Number newValue) {
-			if (newValue.intValue() > oldValue.intValue()) {
-			//verifie si le pseudo est superieur a la limite
-				if (textPseudoIntro.getText().length() >= LIMIT) {
-					//si �a d�passe on set le texte avec 20 caract�res
-					textPseudoIntro.setText(textPseudoIntro.getText().substring(0, LIMIT));
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+				if (newValue.intValue() > oldValue.intValue()) {
+					// verifie si le pseudo est superieur a la limite
+					if (textPseudoIntro.getText().length() >= LIMIT) {
+						// si ca depasse on set le texte avec 20 caracteres
+						textPseudoIntro.setText(textPseudoIntro.getText().substring(0, LIMIT));
+					}
 				}
 			}
-		}
 		});
 	}
 
