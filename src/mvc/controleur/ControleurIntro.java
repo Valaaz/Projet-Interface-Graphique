@@ -71,7 +71,7 @@ public class ControleurIntro {
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(jeu);
 			stage.setScene(scene);
-			scene.getStylesheets().add(getClass().getResource("/css/applicationLight.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -90,7 +90,7 @@ public class ControleurIntro {
 
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
-		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight.css").toExternalForm());
+		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 	
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
 		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
@@ -130,7 +130,7 @@ public class ControleurIntro {
 		Alert aide = new Alert(AlertType.INFORMATION);
 		aide.setHeaderText("Règles");
 		aide.setContentText(info);
-		aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight.css").toExternalForm());
+		aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 		aide.setHeight(900);
 		aide.show();
 	}
@@ -152,7 +152,7 @@ public class ControleurIntro {
 
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
-		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight.css").toExternalForm());
+		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
 		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);

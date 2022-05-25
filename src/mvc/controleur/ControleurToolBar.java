@@ -45,6 +45,7 @@ public class ControleurToolBar {
 //		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 //
 //		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
+//		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 //
 //		Node btnOk = dialog.getDialogPane().lookupButton(buttonTypeValider);
 //		Node btnRes = dialog.getDialogPane().lookupButton(buttonTypeRes);
@@ -80,6 +81,7 @@ public class ControleurToolBar {
 //
 //		GridPane grille = loader.load();
 //		dialog.getDialogPane().setContent(grille);
+//		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 //
 //		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
 //		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
@@ -120,7 +122,8 @@ public class ControleurToolBar {
 		Alert aide = new Alert(AlertType.INFORMATION);
 		aide.setHeaderText("Règles");
 		aide.setContentText(info);
-		aide.setHeight(600);
+		aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		aide.setHeight(900);
 		aide.show();
 	}
 
