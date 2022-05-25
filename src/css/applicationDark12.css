@@ -1,4 +1,4 @@
-Label{
+Label:not(#lblTaillePolice){
 	-fx-font-size : 12px
 }
 GridPane{
