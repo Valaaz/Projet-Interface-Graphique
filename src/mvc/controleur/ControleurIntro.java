@@ -238,13 +238,6 @@ public class ControleurIntro {
 			contPreferences.valider();
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
 			style();
-			if(option.getSkinPendu() == 0) {
-				Image img = new Image(getClass().getResource("/images/pendu_image/AGagner.png").toExternalForm());
-				imagePendu.setImage(img);
-			} else {
-				Image img = new Image(getClass().getResource("/images/pendu_image/BGagner.png").toExternalForm());
-				imagePendu.setImage(img);
-			}
 		} else if (result.get() == buttonTypeRes) {
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
             option.setModeSombre(false);
@@ -300,6 +293,15 @@ public class ControleurIntro {
 				lblMessage.setStyle("-fx-font-size : 16px");
 			}
 		}
+		if(option.getSkinPendu() == 0) {
+			Image img = new Image(getClass().getResource("/images/pendu_image/AGagner.png").toExternalForm());
+			imagePendu.setImage(img);
+		} else {
+			Image img = new Image(getClass().getResource("/images/pendu_image/BGagner.png").toExternalForm());
+			imagePendu.setImage(img);
+		}
+		
+		
 
 	}
 
