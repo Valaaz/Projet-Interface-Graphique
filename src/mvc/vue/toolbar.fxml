@@ -5,7 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 
-<ToolBar prefHeight="40.0" prefWidth="281.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.controleur.ControleurToolBar">
+<ToolBar prefHeight="40.0" prefWidth="281.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <items>
       <Button fx:id="btnJouer" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rejouer" prefHeight="40.0" prefWidth="40.0">
          <graphic>

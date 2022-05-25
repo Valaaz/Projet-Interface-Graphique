@@ -89,8 +89,9 @@ public class ControleurIntro {
 		FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
 		ControleurJeu contJeu = new ControleurJeu(jeu, option);
 		loader.setController(contJeu);
+		ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
+		toolbar.setController(contToolBar);
 
-		try {
 			VBox jeu = loader.load();
 			jeu.getChildren().add(0, toolbar.load());
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -118,9 +119,6 @@ public class ControleurIntro {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 				}
 			}
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
 	}
 
 	@FXML
@@ -288,6 +286,29 @@ public class ControleurIntro {
 				btnAide.setStyle("-fx-background-color : #856396");
 				btnQuitter.setStyle("-fx-background-color : #856396");
 				gridPane.setStyle("-fx-background-color : #c9aac6");
+				if(option.getTaillePolice() == 12) {
+					lblTitre.setStyle("-fx-font-size : 12px");
+					lblNom.setStyle("-fx-font-size : 12px");
+					lblMessage.setStyle("-fx-font-size : 12px;");
+				}
+				else if(option.getTaillePolice() == 14) {
+					lblTitre.setStyle("-fx-font-size : 14px");
+					lblNom.setStyle("-fx-font-size : 14px");
+					lblMessage.setStyle("-fx-font-size : 14px;");
+				}
+				else {
+					lblTitre.setStyle("-fx-font-size : 16px");
+					lblNom.setStyle("-fx-font-size : 16px");
+					lblMessage.setStyle("-fx-font-size : 16px;");
+				}
+			}
+			else {
+				btnJouer.setStyle("-fx-background-color : #99CCFF");
+				btnParametres.setStyle("-fx-background-color : #99CCFF");
+				btnPreferences.setStyle("-fx-background-color : #99CCFF");
+				btnAide.setStyle("-fx-background-color : #99CCFF");
+				btnQuitter.setStyle("-fx-background-color : #99CCFF");
+				gridPane.setStyle("-fx-background-color : #E8F9FD");
 				if(option.getTaillePolice() == 12) {
 					lblTitre.setStyle("-fx-font-size : 12px");
 					lblNom.setStyle("-fx-font-size : 12px");

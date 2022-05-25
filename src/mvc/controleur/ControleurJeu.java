@@ -93,6 +93,8 @@ public class ControleurJeu {
 			FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
 			ControleurFinPartie contFinPartie = new ControleurFinPartie();
 			loader.setController(contFinPartie);
+			ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
+			toolbar.setController(contToolBar);
 
 			GridPane root = loader.load();
 			root.add(toolbar.load(), 0, 0, 3, 1);
