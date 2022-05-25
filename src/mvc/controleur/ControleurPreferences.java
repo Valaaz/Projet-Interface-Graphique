@@ -32,6 +32,8 @@ public class ControleurPreferences {
 
 	@FXML
 	private RadioButton radioBtnSkinSimple, radioBtnSkinAvance;
+	
+	private final static int LIMIT = 20;
 
 	public ControleurPreferences(GestionJeu jeu, GestionOption option) {
 		super();
@@ -83,6 +85,19 @@ public class ControleurPreferences {
 				lblTaillePolice.setFont(new Font("System", (double) newValue));
 			}
 		});
+		textPseudo.lengthProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+			Number oldValue, Number newValue) {
+			if (newValue.intValue() > oldValue.intValue()) {
+			//verifie si le pseudo est superieur à la limite
+			if (textPseudo.getText().length() >= LIMIT) {
+			//si ça dépasse on set le texte avec 20 caractères
+				textPseudo.setText(textPseudo.getText().substring(0, LIMIT));
+			}
+			}
+			}
+			});
 	}
 
 	public void valider() {

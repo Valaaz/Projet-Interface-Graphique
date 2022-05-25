@@ -3,6 +3,8 @@ package mvc.controleur;
 import java.io.IOException;
 import java.util.Optional;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +44,8 @@ public class ControleurIntro {
 
 	@FXML
 	private Button btnJouer, btnParametres, btnPreferences, btnAide, btnQuitter;
+	
+	private static final int LIMIT = 20;
 
 	public ControleurIntro(GestionJeu jeu, GestionOption option) {
 		super();
@@ -66,6 +70,19 @@ public class ControleurIntro {
 				btnJouer.setDisable(false);
 			}
 		});
+		textPseudoIntro.lengthProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+			Number oldValue, Number newValue) {
+			if (newValue.intValue() > oldValue.intValue()) {
+			//verifie si le pseudo est superieur a la limite
+			if (textPseudoIntro.getText().length() >= LIMIT) {
+			//si �a d�passe on set le texte avec 20 caract�res
+				textPseudoIntro.setText(textPseudoIntro.getText().substring(0, LIMIT));
+			}
+			}
+			}
+			});
 	}
 
 	@FXML
@@ -220,48 +237,8 @@ public class ControleurIntro {
 		if (result.get() == buttonTypeValider) {
 			contPreferences.valider();
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
-			if (option.isModeSombre()) {
-				btnJouer.setStyle("-fx-background-color : #856396");
-				btnParametres.setStyle("-fx-background-color : #856396");
-				btnPreferences.setStyle("-fx-background-color : #856396");
-				btnAide.setStyle("-fx-background-color : #856396");
-				btnQuitter.setStyle("-fx-background-color : #856396");
-				gridPane.setStyle("-fx-background-color : #c9aac6");
-				if (option.getTaillePolice() == 12) {
-					lblTitre.setStyle("-fx-font-size : 12px");
-					lblNom.setStyle("-fx-font-size : 12px");
-					lblMessage.setStyle("-fx-font-size : 12px;");
-				} else if (option.getTaillePolice() == 14) {
-					lblTitre.setStyle("-fx-font-size : 14px");
-					lblNom.setStyle("-fx-font-size : 14px");
-					lblMessage.setStyle("-fx-font-size : 14px;");
-				} else {
-					lblTitre.setStyle("-fx-font-size : 16px");
-					lblNom.setStyle("-fx-font-size : 16px");
-					lblMessage.setStyle("-fx-font-size : 16px;");
-				}
-			} else {
-				btnJouer.setStyle("-fx-background-color : #99CCFF");
-				btnParametres.setStyle("-fx-background-color : #99CCFF");
-				btnPreferences.setStyle("-fx-background-color : #99CCFF");
-				btnAide.setStyle("-fx-background-color : #99CCFF");
-				btnQuitter.setStyle("-fx-background-color : #99CCFF");
-				gridPane.setStyle("-fx-background-color : #E8F9FD");
-				if (option.getTaillePolice() == 12) {
-					lblTitre.setStyle("-fx-font-size : 12px");
-					lblNom.setStyle("-fx-font-size : 12px");
-					lblMessage.setStyle("-fx-font-size : 12px");
-				} else if (option.getTaillePolice() == 14) {
-					lblTitre.setStyle("-fx-font-size : 14px");
-					lblNom.setStyle("-fx-font-size : 14px");
-					lblMessage.setStyle("-fx-font-size : 14px");
-				} else {
-					lblTitre.setStyle("-fx-font-size : 16px");
-					lblNom.setStyle("-fx-font-size : 16px");
-					lblMessage.setStyle("-fx-font-size : 16px");
-				}
-			}
-			if (option.getSkinPendu() == 0) {
+			style();
+			if(option.getSkinPendu() == 0) {
 				Image img = new Image(getClass().getResource("/images/pendu_image/AGagner.png").toExternalForm());
 				imagePendu.setImage(img);
 			} else {
@@ -270,15 +247,60 @@ public class ControleurIntro {
 			}
 		} else if (result.get() == buttonTypeRes) {
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
-			option.setModeSombre(false);
-			option.setTaillePolice(12);
-			option.setSkinPendu(0);
-			msgReinitialisationValeurs();
+            option.setModeSombre(false);
+            option.setTaillePolice(12);
+            option.setSkinPendu(0);
+            msgReinitialisationValeurs();
+			style();
 		} else if (result.get() == buttonTypeAnnuler) {
 			dialog.close();
 		} else {
 			System.out.println("Erreur");
 		}
+	}
+	public void style() {
+		if (option.isModeSombre()) {
+			btnJouer.setStyle("-fx-background-color : #856396");
+			btnParametres.setStyle("-fx-background-color : #856396");
+			btnPreferences.setStyle("-fx-background-color : #856396");
+			btnAide.setStyle("-fx-background-color : #856396");
+			btnQuitter.setStyle("-fx-background-color : #856396");
+			gridPane.setStyle("-fx-background-color : #c9aac6");
+			if (option.getTaillePolice() == 12) {
+				lblTitre.setStyle("-fx-font-size : 12px");
+				lblNom.setStyle("-fx-font-size : 12px");
+				lblMessage.setStyle("-fx-font-size : 12px;");
+			} else if (option.getTaillePolice() == 14) {
+				lblTitre.setStyle("-fx-font-size : 14px");
+				lblNom.setStyle("-fx-font-size : 14px");
+				lblMessage.setStyle("-fx-font-size : 14px;");
+			} else {
+				lblTitre.setStyle("-fx-font-size : 16px");
+				lblNom.setStyle("-fx-font-size : 16px");
+				lblMessage.setStyle("-fx-font-size : 16px;");
+			}
+		} else {
+			btnJouer.setStyle("-fx-background-color : #99CCFF");
+			btnParametres.setStyle("-fx-background-color : #99CCFF");
+			btnPreferences.setStyle("-fx-background-color : #99CCFF");
+			btnAide.setStyle("-fx-background-color : #99CCFF");
+			btnQuitter.setStyle("-fx-background-color : #99CCFF");
+			gridPane.setStyle("-fx-background-color : #E8F9FD");
+			if (option.getTaillePolice() == 12) {
+				lblTitre.setStyle("-fx-font-size : 12px");
+				lblNom.setStyle("-fx-font-size : 12px");
+				lblMessage.setStyle("-fx-font-size : 12px");
+			} else if (option.getTaillePolice() == 14) {
+				lblTitre.setStyle("-fx-font-size : 14px");
+				lblNom.setStyle("-fx-font-size : 14px");
+				lblMessage.setStyle("-fx-font-size : 14px");
+			} else {
+				lblTitre.setStyle("-fx-font-size : 16px");
+				lblNom.setStyle("-fx-font-size : 16px");
+				lblMessage.setStyle("-fx-font-size : 16px");
+			}
+		}
+
 	}
 
 	public void ouvrirAide() {
