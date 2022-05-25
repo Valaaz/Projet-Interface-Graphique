@@ -1,0 +1,15 @@
+Label:not(#lblTaillePolice){
+	-fx-font-size : 12px;
+}
+GridPane{
+	-fx-background-color : #c9aac6
+}
+VBox{
+	-fx-background-color : #c9aac6
+}
+DialogPane{
+	-fx-background-color : #c9aac6
+}
+Button{
+	-fx-background-color : #856396
+}
