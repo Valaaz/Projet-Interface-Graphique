@@ -41,7 +41,7 @@
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Label>
-      <Label fx:id="messageFinPendu" prefHeight="95.0" prefWidth="180.0" text="NON &quot;Joueur&quot; ! Tu as échoué mais rien n'est perdu, tu peux réessayer" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <Label fx:id="msgFinPendu" prefHeight="95.0" prefWidth="180.0" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="60.0" right="50.0" />
          </GridPane.margin>
