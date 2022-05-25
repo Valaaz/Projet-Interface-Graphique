@@ -76,13 +76,13 @@ public class ControleurIntro {
 			Number oldValue, Number newValue) {
 			if (newValue.intValue() > oldValue.intValue()) {
 			//verifie si le pseudo est superieur a la limite
-			if (textPseudoIntro.getText().length() >= LIMIT) {
-			//si �a d�passe on set le texte avec 20 caract�res
-				textPseudoIntro.setText(textPseudoIntro.getText().substring(0, LIMIT));
+				if (textPseudoIntro.getText().length() >= LIMIT) {
+					//si �a d�passe on set le texte avec 20 caract�res
+					textPseudoIntro.setText(textPseudoIntro.getText().substring(0, LIMIT));
+				}
 			}
-			}
-			}
-			});
+		}
+		});
 	}
 
 	@FXML
@@ -93,7 +93,7 @@ public class ControleurIntro {
 		FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
 		ControleurJeu contJeu = new ControleurJeu(jeu, option);
 		loader.setController(contJeu);
-		ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
+		ControleurToolBar contToolBar = new ControleurToolBar(jeu, option, true);
 		toolbar.setController(contToolBar);
 
 		VBox jeu = loader.load();
@@ -300,9 +300,6 @@ public class ControleurIntro {
 			Image img = new Image(getClass().getResource("/images/pendu_image/BGagner.png").toExternalForm());
 			imagePendu.setImage(img);
 		}
-		
-		
-
 	}
 
 	public void ouvrirAide() {
