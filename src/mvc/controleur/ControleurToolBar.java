@@ -12,8 +12,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import mvc.modele.GestionJeu;
 import mvc.modele.GestionOption;
 
@@ -30,6 +32,15 @@ public class ControleurToolBar {
 
 	@FXML
 	private Button btnJouer, btnParametres, btnPreferences, btnAide, btnQuitter;
+	
+	@FXML
+	private VBox vbox;
+	
+	@FXML
+	private Label lblMot, lblMsgJoueur,lblLettresRestantes, lblMsgInteractif;
+	
+	@FXML
+	private GridPane clavier;
 
 	@FXML
 	public void initialize() {
@@ -51,8 +62,7 @@ public class ControleurToolBar {
 	public void ouvrirParametres() throws IOException {
 //		Dialog<ButtonType> dialog = new Dialog<>();
 //
-//		dialog.setTitle("Choix");
-//		dialog.setHeaderText("Paramètres");
+//		dialog.setTitle("Paramètres");
 //		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/parametres.fxml"));
 //
 //		ControleurParametres contParametres = new ControleurParametres(jeu, option);
@@ -115,8 +125,7 @@ public class ControleurToolBar {
 	public void ouvrirPreferences() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
-		dialog.setTitle("Choix");
-		dialog.setHeaderText("Préférences");
+		dialog.setTitle("Préférences");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/preferences.fxml"));
 
 		ControleurPreferences contPreferences = new ControleurPreferences(jeu, option);

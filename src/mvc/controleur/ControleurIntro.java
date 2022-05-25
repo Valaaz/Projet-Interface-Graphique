@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -28,6 +30,9 @@ public class ControleurIntro {
 
 	@FXML
 	private TextField textPseudoIntro;
+	
+	@FXML
+	private ImageView imagePendu;
 
 	@FXML
 	private Label lblTitre, lblNom, lblMessage;
@@ -102,8 +107,7 @@ public class ControleurIntro {
 	public void ouvrirParametres() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
-		dialog.setTitle("Choix");
-		dialog.setHeaderText("Parametres");
+		dialog.setTitle("Paramï¿½tres");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/parametres.fxml"));
 
 		ControleurParametres contParametres = new ControleurParametres(jeu, option);
@@ -152,7 +156,7 @@ public class ControleurIntro {
 		if (result.get() == buttonTypeValider) {
 			contParametres.valider();
 		} else if (result.get() == buttonTypeRes) {
-			option.setTheme("Tous les thèmes");
+			option.setTheme("Tous les thï¿½mes");
 			jeu.setNbMaxErreurs(5);
 			option.setDifficulte("Moyen");
 			msgReinitialisationValeurs();
@@ -167,8 +171,7 @@ public class ControleurIntro {
 	public void ouvrirPreferences() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
-		dialog.setTitle("Choix");
-		dialog.setHeaderText("Preferences");
+		dialog.setTitle("Prï¿½fï¿½rences");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/preferences.fxml"));
 
 		ControleurPreferences contPreferences = new ControleurPreferences(jeu, option);
@@ -181,8 +184,7 @@ public class ControleurIntro {
 				dialog.getDialogPane().getStylesheets()
 						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
 			} else if (option.getTaillePolice() == 14) {
-				dialog.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
 			} else {
 				dialog.getDialogPane().getStylesheets()
 						.add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
@@ -258,7 +260,14 @@ public class ControleurIntro {
 					lblMessage.setStyle("-fx-font-size : 16px");
 				}
 			}
-
+			if(option.getSkinPendu() == 0) {
+				Image img = new Image(getClass().getResource("/images/pendu_image/AGagner.png").toExternalForm());
+				imagePendu.setImage(img);
+			}
+			else {
+				Image img = new Image(getClass().getResource("/images/pendu_image/BGagner.png").toExternalForm());
+				imagePendu.setImage(img);
+			}
 		} else if (result.get() == buttonTypeRes) {
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
 			option.setModeSombre(false);
@@ -311,8 +320,8 @@ public class ControleurIntro {
 	}
 
 	private void msgReinitialisationValeurs() {
-		Alert info = new Alert(AlertType.INFORMATION, "Vous avez réinitialisé les valeurs par défaut", ButtonType.OK);
-		info.setHeaderText("Valeurs réinitialisées");
+		Alert info = new Alert(AlertType.INFORMATION, "Vous avez rï¿½initialisï¿½ les valeurs par dï¿½faut", ButtonType.OK);
+		info.setHeaderText("Valeurs rï¿½initialisï¿½es");
 		info.showAndWait();
 	}
 

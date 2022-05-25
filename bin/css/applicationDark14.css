@@ -1,3 +1,6 @@
+Label{
+	-fx-font-size : 14px;
+}
 Label:not(#lblTaillePolice){
 	-fx-font-size : 14px;
 }
