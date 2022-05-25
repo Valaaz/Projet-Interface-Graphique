@@ -1,5 +1,8 @@
 package mvc.controleur;
 
+import java.io.File;
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
@@ -26,7 +29,12 @@ public class ControleurParametres {
 
 	@FXML
 	public void initialize() {
-		chBoxTheme.getItems().addAll("Tous les thèmes", "Animal", "Informatique", "Espace", "Nature", "Mobilier");
+		File dictionnaires = new File("../Projet-Interface-Graphique/dictionnaires");
+		for (int i = 0; i < dictionnaires.list().length; i++) {
+			String[] nomFichier = new String[1];
+			nomFichier = dictionnaires.list()[i].split(".txt");
+			chBoxTheme.getItems().add(nomFichier[0]);
+		}
 		chBoxTheme.getSelectionModel().select(option.getTheme());
 
 		groupeErreurMax = new ToggleGroup();
@@ -51,10 +59,12 @@ public class ControleurParametres {
 			groupeDifficulte.selectToggle(radioBtnDifficile);
 	}
 
-	public void valider() {
-		option.setTheme(chBoxTheme.getSelectionModel().getSelectedItem());
+	public void valider() throws IOException {
+		option.setTheme(getTheme());
 		option.setDifficulte(getDifficulte());
 		jeu.setNbMaxErreurs(getNbMaxErreurs());
+		jeu.ChangerDico("../Projet-Interface-Graphique/dictionnaires/" + getTheme() + ".txt");
+		System.out.println(jeu.getDico().toString());
 	}
 
 	public int getNbMaxErreurs() {
@@ -62,6 +72,10 @@ public class ControleurParametres {
 			return 5;
 		else
 			return 10;
+	}
+
+	public String getTheme() {
+		return chBoxTheme.getSelectionModel().getSelectedItem();
 	}
 
 	public String getDifficulte() {
