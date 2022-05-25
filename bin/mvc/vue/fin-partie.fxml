@@ -20,7 +20,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <ImageView fx:id="imagePenduFin" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <image>
             <Image url="@../../images/pendu_image/APerdu.png" />
          </image>
@@ -36,12 +36,12 @@
             <Insets bottom="25.0" right="60.0" />
          </GridPane.margin>
       </ImageView>
-      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Label fx:id="msgFin" text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="50.0" />
          </GridPane.margin>
       </Label>
-      <Label prefHeight="95.0" prefWidth="180.0" text="NON &quot;Joueur&quot; ! Tu as échoué mais rien n'est perdu, tu peux réessayer" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <Label fx:id="messageFinPendu" prefHeight="95.0" prefWidth="180.0" text="NON &quot;Joueur&quot; ! Tu as échoué mais rien n'est perdu, tu peux réessayer" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="60.0" right="50.0" />
          </GridPane.margin>

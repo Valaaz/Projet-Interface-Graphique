@@ -10,7 +10,6 @@ import mvc.modele.GestionOption;
 public class ControleurFinPartie {
 	private GestionJeu jeu;
 
-	private String skin;
 	
 	@FXML
 	private Label msgFin;
@@ -23,6 +22,9 @@ public class ControleurFinPartie {
 
 	private GestionOption option;
 	
+	private String skin;
+
+	
 	public ControleurFinPartie(GestionJeu jeu, GestionOption option) {
 		super();
 		this.jeu = jeu;
@@ -30,8 +32,6 @@ public class ControleurFinPartie {
 	}
 	
 	public void initialize() {
-		
-		
 				
 		if (option.getSkinPendu() == 0)
 			skin = "A";
@@ -46,7 +46,7 @@ public class ControleurFinPartie {
 			msgFinPendu
 			.setText("MERCI "+jeu.getNomJoueur()+" ! Tu m'as sorti d'affaire !" );
 			
-			Image img = new Image(getClass().getResource("/images/pendu_image/skin" + option.getSkinPendu() +"Gagner").toExternalForm());
+			Image img = new Image(getClass().getResource("/images/pendu_image/skin" + skin +"Gagner").toExternalForm());
 			imagePenduFin.setImage(img);
 			
 			}
@@ -57,7 +57,7 @@ public class ControleurFinPartie {
 			msgFinPendu
 			.setText("NON "+jeu.getNomJoueur()+" ! Tu as échoué mais rien n'est perdu, tu peux réessayer." );
 			
-			Image img = new Image(getClass().getResource("/images/pendu_image/skin" + option.getSkinPendu() +"Perdu").toExternalForm());
+			Image img = new Image(getClass().getResource("/images/pendu_image/skin" + skin +"Perdu").toExternalForm());
 			imagePenduFin.setImage(img);
 		}
 			
