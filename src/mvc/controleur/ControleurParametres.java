@@ -33,7 +33,7 @@ public class ControleurParametres {
 		radioBtnCinq.setToggleGroup(groupeErreurMax);
 		radioBtnDix.setToggleGroup(groupeErreurMax);
 
-		if (jeu.getNbMaxErreurs() == 4)
+		if (jeu.getNbMaxErreurs() == 5)
 			groupeErreurMax.selectToggle(radioBtnCinq);
 		else
 			groupeErreurMax.selectToggle(radioBtnDix);

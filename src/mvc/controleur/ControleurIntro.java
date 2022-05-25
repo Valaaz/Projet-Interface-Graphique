@@ -65,16 +65,12 @@ public class ControleurIntro {
 		ControleurJeu contJeu = new ControleurJeu(jeu, option);
 		loader.setController(contJeu);
 
-		try {
-			VBox jeu = loader.load();
-			jeu.getChildren().add(0, toolbar.load());
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(jeu);
-			stage.setScene(scene);
-			scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
+		VBox jeu = loader.load();
+		jeu.getChildren().add(0, toolbar.load());
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(jeu);
+		stage.setScene(scene);
+		scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 	}
 
 	@FXML
@@ -82,7 +78,7 @@ public class ControleurIntro {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
 		dialog.setTitle("Choix");
-		dialog.setHeaderText("Param�tres");
+		dialog.setHeaderText("Parametres");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/parametres.fxml"));
 
 		ControleurParametres contParametres = new ControleurParametres(jeu, option);
@@ -90,10 +86,11 @@ public class ControleurIntro {
 
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
-		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
-	
+		dialog.getDialogPane().getStylesheets()
+				.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
-		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar d�faut", ButtonData.LEFT);
+		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar defaut", ButtonData.LEFT);
 		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
@@ -120,17 +117,18 @@ public class ControleurIntro {
 	}
 
 	public void ouvrirAide() {
-		String info = "R�gles :\n\n"
-				+ "Pour gagner, le joueur doit trouver le mot cach� en proposant diff�rentes lettres.\n"
+		String info = "Regles :\n\n"
+				+ "Pour gagner, le joueur doit trouver le mot cache en proposant differentes lettres.\n"
 				+ "Si le joueur se trompe plus de 5 fois alors, la partie est perdue." + "\n\nAide au jeu :\n\n"
-				+ "Pour s�lectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
-				+ "Vous pouvez �galement taper avec le clavier pour s�lectionner les lettres du clavier virtuel"
+				+ "Pour selectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
+				+ "Vous pouvez egalement taper avec le clavier pour selectionner les lettres du clavier virtuel"
 				+ "\n\nSupport :\n\n" + "Tel : 06 42 86 57 38\n" + "e-mail : Antoine.scanu1@gmail.com";
 
 		Alert aide = new Alert(AlertType.INFORMATION);
-		aide.setHeaderText("R�gles");
+		aide.setHeaderText("Regles");
 		aide.setContentText(info);
-		aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		aide.getDialogPane().getStylesheets()
+				.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 		aide.setHeight(900);
 		aide.show();
 	}
@@ -144,7 +142,7 @@ public class ControleurIntro {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
 		dialog.setTitle("Choix");
-		dialog.setHeaderText("Pr�f�rences");
+		dialog.setHeaderText("Preferences");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/preferences.fxml"));
 
 		ControleurPreferences contPreferences = new ControleurPreferences(jeu, option);
@@ -152,10 +150,11 @@ public class ControleurIntro {
 
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
-		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		dialog.getDialogPane().getStylesheets()
+				.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
-		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar d�faut", ButtonData.LEFT);
+		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar defaut", ButtonData.LEFT);
 		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);

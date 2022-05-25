@@ -1,6 +1,7 @@
 package mvc.controleur;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -19,6 +21,7 @@ public class ControleurJeu {
 	private GestionJeu jeu;
 	private GestionOption option;
 	private String[] lettresTrouvees;
+	private ArrayList<Image> listeImagesPendu;
 
 	@FXML
 	private Label lblMot, lblLettresRestantes, lblMsgInteractif, lblMsgJoueur;
@@ -48,8 +51,13 @@ public class ControleurJeu {
 
 		lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
 
-//		Image img = new Image(getClass().getResource("images/aide.png").toExternalForm());
-//		imgPendu.setImage(img);
+		listeImagesPendu = new ArrayList<Image>();
+		for (int i = 1; i < jeu.getNbMaxErreurs(); i++) {
+			Image img = new Image(getClass()
+					.getResource("/images/pendu_image/skinA_" + jeu.getNbMaxErreurs() + "Erreurs/A" + i + "Erreurs.png")
+					.toExternalForm());
+			listeImagesPendu.add(img);
+		}
 	}
 
 	@FXML
@@ -68,6 +76,9 @@ public class ControleurJeu {
 			btn.setStyle("-fx-background-color: #CCCCCC");
 			btn.setDisable(true);
 			jeu.MAJNbErreurs();
+
+			if (jeu.getNbErreurs() != jeu.getNbMaxErreurs())
+				imgPendu.setImage(listeImagesPendu.get(jeu.getNbErreurs() - 1));
 			lblMsgInteractif.setText(
 					"Dommage ! Tu as encore le droit à " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()) + " erreurs");
 		}
