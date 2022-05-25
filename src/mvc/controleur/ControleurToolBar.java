@@ -35,13 +35,13 @@ public class ControleurToolBar {
 
 	@FXML
 	private Button btnJouer, btnParametres, btnPreferences, btnAide, btnQuitter;
-	
+
 	@FXML
 	private VBox vbox;
-	
+
 	@FXML
-	private Label lblMot, lblMsgJoueur,lblLettresRestantes, lblMsgInteractif;
-	
+	private Label lblMot, lblMsgJoueur, lblLettresRestantes, lblMsgInteractif;
+
 	@FXML
 	private GridPane clavier;
 
@@ -80,27 +80,28 @@ public class ControleurToolBar {
 		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
-		
-		if(option.isModeSombre()) {
-			if(option.getTaillePolice() == 12) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+
+		if (option.isModeSombre()) {
+			if (option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+			} else {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
 			}
-			else if(option.getTaillePolice() == 14) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-			}
-			else {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
-			}
-		}
-		else {
-			if(option.getTaillePolice() == 12) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-			}
-			else if(option.getTaillePolice() == 14) {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-			}
-			else {
-				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		} else {
+			if (option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+			} else {
+				dialog.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 			}
 		}
 
@@ -114,9 +115,11 @@ public class ControleurToolBar {
 		Optional<ButtonType> result = dialog.showAndWait();
 		if (result.get() == buttonTypeValider) {
 			contParametres.valider();
-			System.out.println(option.toString());
 		} else if (result.get() == buttonTypeRes) {
-			ouvrirParametres();
+			option.setTheme("Tous les themes");
+			jeu.setNbMaxErreurs(5);
+			option.setDifficulte("Moyen");
+			msgReinitialisationValeurs();
 		} else if (result.get() == buttonTypeAnnuler) {
 			dialog.close();
 		} else {
@@ -177,9 +180,11 @@ public class ControleurToolBar {
 		Optional<ButtonType> result = dialog.showAndWait();
 		if (result.get() == buttonTypeValider) {
 			contPreferences.valider();
-			System.out.println(option.toString());
 		} else if (result.get() == buttonTypeRes) {
-			ouvrirPreferences();
+			option.setModeSombre(false);
+			option.setTaillePolice(12);
+			option.setSkinPendu(0);
+			msgReinitialisationValeurs();
 		} else if (result.get() == buttonTypeAnnuler) {
 			dialog.close();
 		} else {
@@ -229,5 +234,11 @@ public class ControleurToolBar {
 	@FXML
 	public void quitter() {
 		System.exit(0);
+	}
+
+	private void msgReinitialisationValeurs() {
+		Alert info = new Alert(AlertType.INFORMATION, "Vous avez reinitialise les valeurs par defaut", ButtonType.OK);
+		info.setHeaderText("Valeurs reinitialisees");
+		info.showAndWait();
 	}
 }

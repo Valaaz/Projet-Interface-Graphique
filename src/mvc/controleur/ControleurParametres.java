@@ -64,7 +64,6 @@ public class ControleurParametres {
 		option.setDifficulte(getDifficulte());
 		jeu.setNbMaxErreurs(getNbMaxErreurs());
 		jeu.ChangerDico("../Projet-Interface-Graphique/dictionnaires/" + getTheme() + ".txt");
-		System.out.println(jeu.getDico().toString());
 	}
 
 	public int getNbMaxErreurs() {

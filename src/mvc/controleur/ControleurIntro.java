@@ -172,7 +172,7 @@ public class ControleurIntro {
 		if (result.get() == buttonTypeValider) {
 			contParametres.valider();
 		} else if (result.get() == buttonTypeRes) {
-			option.setTheme("Tous les th�mes");
+			option.setTheme("Tous les themes");
 			jeu.setNbMaxErreurs(5);
 			option.setDifficulte("Moyen");
 			msgReinitialisationValeurs();
