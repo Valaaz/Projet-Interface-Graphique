@@ -79,7 +79,9 @@ public class ControleurJeu {
 			GridPane root = loader.load();
 			root.add(toolbar.load(), 0, 0, 3, 1);
 			Stage stage = (Stage) lblMot.getScene().getWindow();
-			stage.setScene(new Scene(root));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("/css/applicationLight.css").toExternalForm());
 		}
 
 		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
@@ -91,7 +93,9 @@ public class ControleurJeu {
 			GridPane root = loader.load();
 			root.add(toolbar.load(), 0, 0, 3, 1);
 			Stage stage = (Stage) lblMot.getScene().getWindow();
-			stage.setScene(new Scene(root));
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("/css/applicationLight.css").toExternalForm());
 		}
 	}
 
