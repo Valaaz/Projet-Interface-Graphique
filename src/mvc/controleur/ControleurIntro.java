@@ -30,31 +30,13 @@ public class ControleurIntro {
 	private TextField textPseudoIntro;
 
 	@FXML
-	private Label lblTitre;
-
-	@FXML
-	private Label lblNom;
-
-	@FXML
-	private Label lblMessage;
+	private Label lblTitre, lblNom, lblMessage;
 
 	@FXML
 	private GridPane gridPane;
 
 	@FXML
-	private Button btnJouer;
-
-	@FXML
-	private Button btnParametres;
-
-	@FXML
-	private Button btnPreferences;
-
-	@FXML
-	private Button btnAide;
-
-	@FXML
-	private Button btnQuitter;
+	private Button btnJouer, btnParametres, btnPreferences, btnAide, btnQuitter;
 
 	public ControleurIntro(GestionJeu jeu, GestionOption option) {
 		super();
