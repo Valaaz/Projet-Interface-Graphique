@@ -57,7 +57,7 @@ public class ControleurIntro {
 	}
 
 	@FXML
-	public void jouer(ActionEvent event) {
+	public void jouer(ActionEvent event) throws IOException {
 		jeu.InitialiserPartie();
 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/jeu.fxml"));
@@ -65,14 +65,10 @@ public class ControleurIntro {
 		ControleurJeu contJeu = new ControleurJeu(jeu, option);
 		loader.setController(contJeu);
 
-		try {
-			VBox jeu = loader.load();
-			jeu.getChildren().add(0, toolbar.load());
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			stage.setScene(new Scene(jeu));
-		} catch (IOException e) {
-			System.err.println(e.getMessage());
-		}
+		VBox jeu = loader.load();
+		jeu.getChildren().add(0, toolbar.load());
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(new Scene(jeu));
 	}
 
 	@FXML

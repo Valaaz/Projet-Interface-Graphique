@@ -34,7 +34,7 @@
             <Insets top="15.0" />
          </VBox.margin>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgPendu" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
             <Insets top="15.0" />
          </VBox.margin>

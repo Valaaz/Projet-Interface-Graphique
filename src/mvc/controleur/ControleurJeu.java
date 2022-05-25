@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import mvc.modele.GestionJeu;
@@ -20,7 +21,10 @@ public class ControleurJeu {
 	private String[] lettresTrouvees;
 
 	@FXML
-	Label lblMot, lblLettresRestantes, lblMsgInteractif, lblMsgJoueur;
+	private Label lblMot, lblLettresRestantes, lblMsgInteractif, lblMsgJoueur;
+
+	@FXML
+	private ImageView imgPendu;
 
 	public ControleurJeu(GestionJeu jeu, GestionOption option) {
 		super();
@@ -43,6 +47,9 @@ public class ControleurJeu {
 		System.out.println(jeu.getMotMystere());
 
 		lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
+
+//		Image img = new Image(getClass().getResource("images/aide.png").toExternalForm());
+//		imgPendu.setImage(img);
 	}
 
 	@FXML
