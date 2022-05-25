@@ -25,7 +25,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label style="-fx-underline: true;" text="Bienvenue sur le jeu du Pendu !" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <Label fx:id="lblTitre" style="-fx-underline: true;" text="Bienvenue sur le jeu du Pendu !" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <padding>
             <Insets top="20.0" />
          </padding>
@@ -90,7 +90,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label text="Entrer votre nom : " GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <Label fx:id="lblNom" text="Entrer votre nom : " GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="35.0" top="30.0" />
          </GridPane.margin>
@@ -114,7 +114,7 @@
             <Insets bottom="10.0" left="35.0" />
          </GridPane.margin>
       </ImageView>
-      <Label prefHeight="131.0" prefWidth="190.0" text="Donne moi ton nom et viens vite m'aider !!! Il te suffit d'appuyer sur Jouer et de trouver le mot !" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <Label fx:id="lblMessage" prefHeight="131.0" prefWidth="190.0" text="Donne moi ton nom et viens vite m'aider !!! Il te suffit d'appuyer sur Jouer et de trouver le mot !" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="45.0" left="50.0" />
          </GridPane.margin>

@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -29,16 +30,29 @@ public class ControleurIntro {
 	private TextField textPseudoIntro;
 	
 	@FXML
+	private Label lblTitre;
+	
+	@FXML
+	private Label lblNom;
+	
+	@FXML
+	private Label lblMessage;
+	
+	@FXML
 	private GridPane gridPane;
 
 	@FXML
 	private Button btnJouer;
+	
 	@FXML
 	private Button btnParametres;
+	
 	@FXML
 	private Button btnPreferences;
+	
 	@FXML
 	private Button btnAide;
+	
 	@FXML
 	private Button btnQuitter;
 
@@ -83,10 +97,26 @@ public class ControleurIntro {
 			Scene scene = new Scene(jeu);
 			stage.setScene(scene);
 			if(option.isModeSombre()) {
-				scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+				if(option.getTaillePolice() == 12) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+				}
+				else if(option.getTaillePolice() == 14) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+				}
+				else {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
+				}
 			}
 			else {
-				scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+				if(option.getTaillePolice() == 12) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+				}
+				else if(option.getTaillePolice() == 14) {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+				}
+				else {
+					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+				}
 			}
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
@@ -107,10 +137,26 @@ public class ControleurIntro {
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
 		if(option.isModeSombre()) {
-			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			if(option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			}
+			else if(option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+			}
+			else {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
+			}
 		}
 		else {
-			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			if(option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			}
+			else if(option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+			}
+			else {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			}
 		}
 	
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
@@ -152,10 +198,26 @@ public class ControleurIntro {
 		aide.setHeaderText("Regles");
 		aide.setContentText(info);
 		if(option.isModeSombre()) {
-			aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			if(option.getTaillePolice() == 12) {
+				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			}
+			else if(option.getTaillePolice() == 14) {
+				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+			}
+			else {
+				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
+			}
 		}
 		else {
-			aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			if(option.getTaillePolice() == 12) {
+				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			}
+			else if(option.getTaillePolice() == 14) {
+				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+			}
+			else {
+				aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			}
 		}
 		aide.setHeight(900);
 		aide.show();
@@ -179,10 +241,26 @@ public class ControleurIntro {
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
 		if(option.isModeSombre()) {
-			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			if(option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			}
+			else if(option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+			}
+			else {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
+			}
 		}
 		else {
-			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			if(option.getTaillePolice() == 12) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			}
+			else if(option.getTaillePolice() == 14) {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+			}
+			else {
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			}
 		}
 
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
@@ -210,6 +288,21 @@ public class ControleurIntro {
 				btnAide.setStyle("-fx-background-color : #856396");
 				btnQuitter.setStyle("-fx-background-color : #856396");
 				gridPane.setStyle("-fx-background-color : #c9aac6");
+				if(option.getTaillePolice() == 12) {
+					lblTitre.setStyle("-fx-font-size : 12px");
+					lblNom.setStyle("-fx-font-size : 12px");
+					lblMessage.setStyle("-fx-font-size : 12px");
+				}
+				else if(option.getTaillePolice() == 14) {
+					lblTitre.setStyle("-fx-font-size : 14px");
+					lblNom.setStyle("-fx-font-size : 14px");
+					lblMessage.setStyle("-fx-font-size : 14px");
+				}
+				else {
+					lblTitre.setStyle("-fx-font-size : 16px");
+					lblNom.setStyle("-fx-font-size : 16px");
+					lblMessage.setStyle("-fx-font-size : 16px");
+				}
 			}
 			
 		} else if (result.get() == buttonTypeRes) {
