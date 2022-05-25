@@ -152,54 +152,15 @@ public class ControleurIntro {
 		if (result.get() == buttonTypeValider) {
 			contParametres.valider();
 		} else if (result.get() == buttonTypeRes) {
-			ouvrirParametres();
+			option.setTheme("Tous les thèmes");
+			jeu.setNbMaxErreurs(5);
+			option.setDifficulte("Moyen");
+			msgReinitialisationValeurs();
 		} else if (result.get() == buttonTypeAnnuler) {
 			dialog.close();
 		} else {
 			System.out.println("Erreur");
 		}
-	}
-
-	public void ouvrirAide() {
-		String info = "Regles :\n\n"
-				+ "Pour gagner, le joueur doit trouver le mot cache en proposant differentes lettres.\n"
-				+ "Si le joueur se trompe plus de 5 fois alors, la partie est perdue." + "\n\nAide au jeu :\n\n"
-				+ "Pour selectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
-				+ "Vous pouvez egalement taper avec le clavier pour selectionner les lettres du clavier virtuel"
-				+ "\n\nSupport :\n\n" + "Tel : 06 42 86 57 38\n" + "e-mail : Antoine.scanu1@gmail.com";
-
-		Alert aide = new Alert(AlertType.INFORMATION);
-		aide.setHeaderText("Regles");
-		aide.setContentText(info);
-		if (option.isModeSombre()) {
-			if (option.getTaillePolice() == 12) {
-				aide.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
-			} else if (option.getTaillePolice() == 14) {
-				aide.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-			} else {
-				aide.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
-			}
-		} else {
-			if (option.getTaillePolice() == 12) {
-				aide.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-			} else if (option.getTaillePolice() == 14) {
-				aide.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-			} else {
-				aide.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
-			}
-		}
-		aide.setHeight(900);
-		aide.show();
-	}
-
-	public void quitter() {
-		System.exit(0);
 	}
 
 	@FXML
@@ -299,13 +260,64 @@ public class ControleurIntro {
 			}
 
 		} else if (result.get() == buttonTypeRes) {
-			ouvrirPreferences();
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
+			option.setModeSombre(false);
+			option.setTaillePolice(12);
+			option.setSkinPendu(0);
+			msgReinitialisationValeurs();
 		} else if (result.get() == buttonTypeAnnuler) {
 			dialog.close();
 		} else {
 			System.out.println("Erreur");
 		}
+	}
+
+	public void ouvrirAide() {
+		String info = "Regles :\n\n"
+				+ "Pour gagner, le joueur doit trouver le mot cache en proposant differentes lettres.\n"
+				+ "Si le joueur se trompe plus de 5 fois alors, la partie est perdue." + "\n\nAide au jeu :\n\n"
+				+ "Pour selectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
+				+ "Vous pouvez egalement taper avec le clavier pour selectionner les lettres du clavier virtuel"
+				+ "\n\nSupport :\n\n" + "Tel : 06 42 86 57 38\n" + "e-mail : Antoine.scanu1@gmail.com";
+
+		Alert aide = new Alert(AlertType.INFORMATION);
+		aide.setHeaderText("Regles");
+		aide.setContentText(info);
+		if (option.isModeSombre()) {
+			if (option.getTaillePolice() == 12) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+			} else {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
+			}
+		} else {
+			if (option.getTaillePolice() == 12) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			} else if (option.getTaillePolice() == 14) {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
+			} else {
+				aide.getDialogPane().getStylesheets()
+						.add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			}
+		}
+		aide.setHeight(900);
+		aide.show();
+	}
+
+	private void msgReinitialisationValeurs() {
+		Alert info = new Alert(AlertType.INFORMATION, "Vous avez réinitialisé les valeurs par défaut", ButtonType.OK);
+		info.setHeaderText("Valeurs réinitialisées");
+		info.showAndWait();
+	}
+
+	public void quitter() {
+		System.exit(0);
 	}
 
 }
