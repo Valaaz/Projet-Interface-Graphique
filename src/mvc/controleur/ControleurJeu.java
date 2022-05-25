@@ -52,10 +52,16 @@ public class ControleurJeu {
 		lblMsgInteractif.setText("Nombre d'erreurs restantes : " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()));
 
 		listeImagesPendu = new ArrayList<Image>();
+
+		String skin;
+		if (option.getSkinPendu() == 0)
+			skin = "A";
+		else
+			skin = "B";
+
 		for (int i = 1; i < jeu.getNbMaxErreurs(); i++) {
-			Image img = new Image(getClass()
-					.getResource("/images/pendu_image/skinA_" + jeu.getNbMaxErreurs() + "Erreurs/A" + i + "Erreurs.png")
-					.toExternalForm());
+			Image img = new Image(getClass().getResource("/images/pendu_image/skin" + skin + "_" + jeu.getNbMaxErreurs()
+					+ "Erreurs/" + skin + i + "Erreurs.png").toExternalForm());
 			listeImagesPendu.add(img);
 		}
 	}
@@ -101,25 +107,20 @@ public class ControleurJeu {
 			Stage stage = (Stage) lblMot.getScene().getWindow();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			if(option.isModeSombre()) {
-				if(option.getTaillePolice() == 12) {
+			if (option.isModeSombre()) {
+				if (option.getTaillePolice() == 12) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
-				}
-				else if(option.getTaillePolice() == 14) {
+				} else if (option.getTaillePolice() == 14) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-				}
-				else {
+				} else {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
 				}
-			}
-			else {
-				if(option.getTaillePolice() == 12) {
+			} else {
+				if (option.getTaillePolice() == 12) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-				}
-				else if(option.getTaillePolice() == 14) {
+				} else if (option.getTaillePolice() == 14) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-				}
-				else {
+				} else {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 				}
 			}
@@ -136,25 +137,20 @@ public class ControleurJeu {
 			Stage stage = (Stage) lblMot.getScene().getWindow();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			if(option.isModeSombre()) {
-				if(option.getTaillePolice() == 12) {
+			if (option.isModeSombre()) {
+				if (option.getTaillePolice() == 12) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
-				}
-				else if(option.getTaillePolice() == 14) {
+				} else if (option.getTaillePolice() == 14) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
-				}
-				else {
+				} else {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
 				}
-			}
-			else {
-				if(option.getTaillePolice() == 12) {
+			} else {
+				if (option.getTaillePolice() == 12) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
-				}
-				else if(option.getTaillePolice() == 14) {
+				} else if (option.getTaillePolice() == 14) {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight14.css").toExternalForm());
-				}
-				else {
+				} else {
 					scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
 				}
 			}
