@@ -81,7 +81,12 @@ public class ControleurJeu {
 			Stage stage = (Stage) lblMot.getScene().getWindow();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			if(option.isModeSombre()) {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			}
+			else {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			}
 		}
 
 		if (jeu.getNbErreurs() == jeu.getNbMaxErreurs()) {
@@ -95,7 +100,12 @@ public class ControleurJeu {
 			Stage stage = (Stage) lblMot.getScene().getWindow();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			if(option.isModeSombre()) {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			}
+			else {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			}
 		}
 	}
 

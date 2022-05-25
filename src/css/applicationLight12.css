@@ -1,0 +1,15 @@
+Label{
+	-fx-font-size : 12px
+}
+GridPane{
+	-fx-background-color : #E8F9FD
+}
+VBox{
+	-fx-background-color : #E8F9FD
+}
+DialogPane{
+	-fx-background-color : #E8F9FD
+}
+Button{
+	-fx-background-color : #99CCFF
+}

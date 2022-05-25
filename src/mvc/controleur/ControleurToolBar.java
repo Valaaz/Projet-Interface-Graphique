@@ -5,10 +5,14 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import mvc.modele.GestionJeu;
+import mvc.modele.GestionOption;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 
 public class ControleurToolBar {
+	private GestionJeu jeu;
+	private GestionOption option;
 	@FXML
 	private Button btnJouer, btnParametres, btnPreferences, btnAide, btnQuitter;
 
@@ -45,7 +49,12 @@ public class ControleurToolBar {
 //		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 //
 //		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
-//		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+//		if(option.isModeSombre()) {
+//		dialog.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+//		}
+//		else {
+//		dialog.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+//		}
 //
 //		Node btnOk = dialog.getDialogPane().lookupButton(buttonTypeValider);
 //		Node btnRes = dialog.getDialogPane().lookupButton(buttonTypeRes);
@@ -81,7 +90,12 @@ public class ControleurToolBar {
 //
 //		GridPane grille = loader.load();
 //		dialog.getDialogPane().setContent(grille);
-//		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+//		if(option.isModeSombre()) {
+//			dialog.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+//		}
+//		else {
+//			dialog.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+//		}
 //
 //		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
 //		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
@@ -122,7 +136,12 @@ public class ControleurToolBar {
 		Alert aide = new Alert(AlertType.INFORMATION);
 		aide.setHeaderText("Règles");
 		aide.setContentText(info);
-		aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		if(option.isModeSombre()) {
+			aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+		}
+		else {
+			aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+		}
 		aide.setHeight(900);
 		aide.show();
 	}

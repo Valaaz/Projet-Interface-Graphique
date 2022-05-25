@@ -27,9 +27,20 @@ public class ControleurIntro {
 
 	@FXML
 	private TextField textPseudoIntro;
+	
+	@FXML
+	private GridPane gridPane;
 
 	@FXML
 	private Button btnJouer;
+	@FXML
+	private Button btnParametres;
+	@FXML
+	private Button btnPreferences;
+	@FXML
+	private Button btnAide;
+	@FXML
+	private Button btnQuitter;
 
 	public ControleurIntro(GestionJeu jeu, GestionOption option) {
 		super();
@@ -71,7 +82,12 @@ public class ControleurIntro {
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(jeu);
 			stage.setScene(scene);
-			scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			if(option.isModeSombre()) {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			}
+			else {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			}
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
@@ -90,7 +106,12 @@ public class ControleurIntro {
 
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
-		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		if(option.isModeSombre()) {
+			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+		}
+		else {
+			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+		}
 	
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
 		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
@@ -130,7 +151,12 @@ public class ControleurIntro {
 		Alert aide = new Alert(AlertType.INFORMATION);
 		aide.setHeaderText("Règles");
 		aide.setContentText(info);
-		aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		if(option.isModeSombre()) {
+			aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+		}
+		else {
+			aide.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+		}
 		aide.setHeight(900);
 		aide.show();
 	}
@@ -152,7 +178,12 @@ public class ControleurIntro {
 
 		GridPane grille = loader.load();
 		dialog.getDialogPane().setContent(grille);
-		dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+		if(option.isModeSombre()) {
+			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+		}
+		else {
+			dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+		}
 
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
 		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
@@ -171,8 +202,16 @@ public class ControleurIntro {
 		if (result.get() == buttonTypeValider) {
 			contPreferences.valider();
 			System.out.println(option.toString());
-			jeu.AffErreurs();
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
+			if(option.isModeSombre()) {
+				btnJouer.setStyle("-fx-background-color : #856396");
+				btnParametres.setStyle("-fx-background-color : #856396");
+				btnPreferences.setStyle("-fx-background-color : #856396");
+				btnAide.setStyle("-fx-background-color : #856396");
+				btnQuitter.setStyle("-fx-background-color : #856396");
+				gridPane.setStyle("-fx-background-color : #c9aac6");
+			}
+			
 		} else if (result.get() == buttonTypeRes) {
 			ouvrirPreferences();
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());

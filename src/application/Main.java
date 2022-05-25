@@ -36,7 +36,13 @@ public class Main extends Application {
 			loader.setController(contIntro);
 			GridPane root = loader.load();
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("/css/applicationLight16.css").toExternalForm());
+			
+			if(option.isModeSombre()) {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
+			}
+			else {
+				scene.getStylesheets().add(getClass().getResource("/css/applicationLight12.css").toExternalForm());
+			}
 
 			primaryStage.setScene(scene);
 			primaryStage.show();
