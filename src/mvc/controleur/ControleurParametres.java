@@ -2,6 +2,7 @@ package mvc.controleur;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -64,6 +65,21 @@ public class ControleurParametres {
 		option.setDifficulte(getDifficulte());
 		jeu.setNbMaxErreurs(getNbMaxErreurs());
 		jeu.ChangerDico("../Projet-Interface-Graphique/dictionnaires/" + getTheme() + ".txt");
+
+		ArrayList<String> dicoDifficulte = new ArrayList<String>();
+		for (String mot : jeu.getDico()) {
+			if (getDifficulte().equals("Facile")) {
+				if (mot.length() <= 7)
+					dicoDifficulte.add(mot);
+			} else if (getDifficulte().equals("Moyen")) {
+				if (mot.length() > 7 && mot.length() < 12)
+					dicoDifficulte.add(mot);
+			} else {
+				if (mot.length() >= 12)
+					dicoDifficulte.add(mot);
+			}
+		}
+		jeu.setDico(dicoDifficulte);
 	}
 
 	public int getNbMaxErreurs() {
