@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -28,6 +30,9 @@ public class ControleurIntro {
 
 	@FXML
 	private TextField textPseudoIntro;
+	
+	@FXML
+	private ImageView imagePendu;
 
 	@FXML
 	private Label lblTitre;
@@ -120,8 +125,7 @@ public class ControleurIntro {
 	public void ouvrirParametres() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
-		dialog.setTitle("Choix");
-		dialog.setHeaderText("Parametres");
+		dialog.setTitle("Paramètres");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/parametres.fxml"));
 
 		ControleurParametres contParametres = new ControleurParametres(jeu, option);
@@ -190,10 +194,12 @@ public class ControleurIntro {
 		aide.setHeaderText("Regles");
 		aide.setContentText(info);
 		if (option.isModeSombre()) {
+			System.out.println("Bonjour");
 			if (option.getTaillePolice() == 12) {
 				aide.getDialogPane().getStylesheets()
 						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
 			} else if (option.getTaillePolice() == 14) {
+				System.out.println("Bonjour");
 				aide.getDialogPane().getStylesheets()
 						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
 			} else {
@@ -224,8 +230,7 @@ public class ControleurIntro {
 	public void ouvrirPreferences() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
-		dialog.setTitle("Choix");
-		dialog.setHeaderText("Preferences");
+		dialog.setTitle("Préférences");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/preferences.fxml"));
 
 		ControleurPreferences contPreferences = new ControleurPreferences(jeu, option);
@@ -238,8 +243,7 @@ public class ControleurIntro {
 				dialog.getDialogPane().getStylesheets()
 						.add(getClass().getResource("/css/applicationDark12.css").toExternalForm());
 			} else if (option.getTaillePolice() == 14) {
-				dialog.getDialogPane().getStylesheets()
-						.add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
+				dialog.getDialogPane().getStylesheets().add(getClass().getResource("/css/applicationDark14.css").toExternalForm());
 			} else {
 				dialog.getDialogPane().getStylesheets()
 						.add(getClass().getResource("/css/applicationDark16.css").toExternalForm());
@@ -315,7 +319,14 @@ public class ControleurIntro {
 					lblMessage.setStyle("-fx-font-size : 16px");
 				}
 			}
-
+			if(option.getSkinPendu() == 0) {
+				Image img = new Image(getClass().getResource("/images/pendu_image/AGagner.png").toExternalForm());
+				imagePendu.setImage(img);
+			}
+			else {
+				Image img = new Image(getClass().getResource("/images/pendu_image/BGagner.png").toExternalForm());
+				imagePendu.setImage(img);
+			}
 		} else if (result.get() == buttonTypeRes) {
 			ouvrirPreferences();
 			textPseudoIntro.setText(jeu.getNomJoueur().trim());
