@@ -72,15 +72,16 @@ public class ControleurIntro {
 		});
 		textPseudoIntro.lengthProperty().addListener(new ChangeListener<Number>() {
 			@Override
-			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				if (newValue.intValue() > oldValue.intValue()) {
-					// verifie si le pseudo est superieur a la limite
-					if (textPseudoIntro.getText().length() >= LIMIT) {
-						// si ï¿½a dï¿½passe on set le texte avec 20 caractï¿½res
-						textPseudoIntro.setText(textPseudoIntro.getText().substring(0, LIMIT));
-					}
+			public void changed(ObservableValue<? extends Number> observable,
+			Number oldValue, Number newValue) {
+			if (newValue.intValue() > oldValue.intValue()) {
+			//verifie si le pseudo est superieur a la limite
+				if (textPseudoIntro.getText().length() >= LIMIT) {
+					//si ï¿½a dï¿½passe on set le texte avec 20 caractï¿½res
+					textPseudoIntro.setText(textPseudoIntro.getText().substring(0, LIMIT));
 				}
 			}
+		}
 		});
 	}
 
@@ -92,7 +93,7 @@ public class ControleurIntro {
 		FXMLLoader toolbar = new FXMLLoader(getClass().getResource("/mvc/vue/toolbar.fxml"));
 		ControleurJeu contJeu = new ControleurJeu(jeu, option);
 		loader.setController(contJeu);
-		ControleurToolBar contToolBar = new ControleurToolBar(jeu, option);
+		ControleurToolBar contToolBar = new ControleurToolBar(jeu, option, true);
 		toolbar.setController(contToolBar);
 
 		VBox jeu = loader.load();
@@ -172,7 +173,7 @@ public class ControleurIntro {
 		if (result.get() == buttonTypeValider) {
 			contParametres.valider();
 		} else if (result.get() == buttonTypeRes) {
-			option.setTheme("Tous les thèmes");
+			option.setTheme("Tous les thï¿½mes");
 			jeu.setNbMaxErreurs(5);
 			option.setDifficulte("Moyen");
 			msgReinitialisationValeurs();
