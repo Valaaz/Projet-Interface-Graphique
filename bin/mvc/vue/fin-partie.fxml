@@ -25,7 +25,7 @@
             <Image url="@../../../images/Pendue_image/APerdu.png" />
          </image>
          <GridPane.margin>
-            <Insets top="20.0" />
+            <Insets right="10.0" top="10.0" />
          </GridPane.margin>
       </ImageView>
       <ImageView fitHeight="162.0" fitWidth="208.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
@@ -33,17 +33,17 @@
             <Image url="@../../../images/dialogue.png" />
          </image>
          <GridPane.margin>
-            <Insets bottom="75.0" right="65.0" />
+            <Insets bottom="95.0" right="85.0" />
          </GridPane.margin>
       </ImageView>
-      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Label text="- DOMMAGE *joueur* ! Tu as PERDU.. Le mot était ____ mais tu fera mieux la prochaine fois !" textAlignment="CENTER" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets top="80.0" />
+            <Insets bottom="10.0" />
          </GridPane.margin>
       </Label>
       <Label prefHeight="95.0" prefWidth="180.0" text="NON &quot;Joueur&quot; ! Tu as échoué mais rien n'est perdu, tu peux réessayer" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="70.0" right="60.0" />
+            <Insets bottom="90.0" right="85.0" />
          </GridPane.margin>
       </Label>
    </children>
