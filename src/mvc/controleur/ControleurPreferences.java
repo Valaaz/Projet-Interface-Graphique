@@ -32,7 +32,7 @@ public class ControleurPreferences {
 
 	@FXML
 	private RadioButton radioBtnSkinSimple, radioBtnSkinAvance;
-	
+
 	private final static int LIMIT = 20;
 
 	public ControleurPreferences(GestionJeu jeu, GestionOption option) {
@@ -76,8 +76,7 @@ public class ControleurPreferences {
 
 		if (!jeu.getNomJoueur().isEmpty()) {
 			textPseudo.setText(jeu.getNomJoueur().trim());
-		}
-		else {
+		} else {
 			textPseudo.setPromptText("Entrez un pseudo");
 		}
 		sliderPolice.valueProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
@@ -87,17 +86,16 @@ public class ControleurPreferences {
 		});
 		textPseudo.lengthProperty().addListener(new ChangeListener<Number>() {
 			@Override
-			public void changed(ObservableValue<? extends Number> observable,
-			Number oldValue, Number newValue) {
-			if (newValue.intValue() > oldValue.intValue()) {
-			//verifie si le pseudo est superieur à la limite
-			if (textPseudo.getText().length() >= LIMIT) {
-			//si ça dépasse on set le texte avec 20 caractères
-				textPseudo.setText(textPseudo.getText().substring(0, LIMIT));
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+				if (newValue.intValue() > oldValue.intValue()) {
+					// verifie si le pseudo est superieur à la limite
+					if (textPseudo.getText().length() >= LIMIT) {
+						// si ça depasse on set le texte avec 20 caraceères
+						textPseudo.setText(textPseudo.getText().substring(0, LIMIT));
+					}
+				}
 			}
-			}
-			}
-			});
+		});
 	}
 
 	public void valider() {
@@ -122,12 +120,11 @@ public class ControleurPreferences {
 			return 1;
 		}
 	}
-	
+
 	public boolean nomJoueurEstVide() {
 		if (textPseudo.getText().trim() == "") {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
