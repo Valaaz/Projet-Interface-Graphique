@@ -25,7 +25,7 @@ public class ControleurJeu {
 	private String skin;
 
 	@FXML
-	private Label lblMot, lblLettresRestantes, lblMsgInteractif, lblMsgJoueur;
+	private Label lblTitre, lblTheme, lblMot, lblLettresRestantes, lblMsgInteractif, lblMsgJoueur;
 
 	@FXML
 	private ImageView imgPendu;
@@ -41,6 +41,7 @@ public class ControleurJeu {
 
 	@FXML
 	public void initialize() {
+		lblTitre.setStyle("-fx-font-size: 25");
 		// initialisation de l'affichage du mot a trouver
 		lettresTrouvees = new String[jeu.getMotMystere().length()];
 		for (int i = 0; i < lettresTrouvees.length; i++) {
@@ -48,6 +49,7 @@ public class ControleurJeu {
 		}
 		lblMot.setText(String.join("", lettresTrouvees));
 
+		lblTheme.setText("Theme : " + option.getTheme());
 		lblMsgJoueur
 				.setText("A toi de jouer " + jeu.getNomJoueur() + ", rentre une lettre pour voir si elle est valide");
 

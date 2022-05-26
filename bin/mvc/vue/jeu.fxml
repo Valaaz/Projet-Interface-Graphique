@@ -10,12 +10,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vbox" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="vbox" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Le jeu du Pendu" underline="true">
+      <Label fx:id="lblTitre" text="Le jeu du Pendu" underline="true">
          <font>
             <Font size="25.0" />
          </font>
+      </Label>
+      <Label fx:id="lblTheme" text="Label" translateX="200.0" translateY="-28.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </Label>
       <Label fx:id="lblMsgJoueur" styleClass="lblJeu" text="Label">
          <VBox.margin>
