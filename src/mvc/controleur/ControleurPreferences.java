@@ -28,7 +28,7 @@ public class ControleurPreferences {
 	private TextField textPseudo;
 
 	@FXML
-	private Label lblTaillePolice;
+	private Label lblTaillePolice, lblPetitA, lblGrandA;
 
 	@FXML
 	private RadioButton radioBtnSkinSimple, radioBtnSkinAvance;
@@ -46,6 +46,13 @@ public class ControleurPreferences {
 		groupeSkin = new ToggleGroup();
 		radioBtnSkinSimple.setToggleGroup(groupeSkin);
 		radioBtnSkinAvance.setToggleGroup(groupeSkin);
+		sliderPolice.valueProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+				lblTaillePolice.setStyle("-fx-font-size:"+newValue+"px");;
+			}
+		});
+		lblPetitA.setStyle("-fx-font-size:12px");
+		lblGrandA.setStyle("-fx-font-size:16px");
 
 		if (option.getSkinPendu() == 0) {
 			groupeSkin.selectToggle(radioBtnSkinSimple);
@@ -79,11 +86,6 @@ public class ControleurPreferences {
 		} else {
 			textPseudo.setPromptText("Entrez un pseudo");
 		}
-		sliderPolice.valueProperty().addListener((ChangeListener<? super Number>) new ChangeListener<Number>() {
-			public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
-				lblTaillePolice.setFont(new Font("System", (double) newValue));
-			}
-		});
 		textPseudo.lengthProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
