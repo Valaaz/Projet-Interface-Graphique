@@ -22,7 +22,7 @@ public class GestionOption {
 
 	public GestionOption() {
 		super();
-		this.theme = "Tous les thèmes";
+		this.theme = "Tous les themes";
 		this.difficulte = "Moyen";
 		this.modeSombre = false;
 		this.taillePolice = 12;
