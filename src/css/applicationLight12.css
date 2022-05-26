@@ -1,8 +1,8 @@
-Label{
+Label:not(.lblFixe){
 	-fx-font-size : 12px;
 }
-Label:not(#lblTaillePolice){
-	-fx-font-size : 12px;
+Label{
+	-fx-font-size : 12px
 }
 GridPane{
 	-fx-background-color : #E8F9FD
@@ -15,4 +15,7 @@ DialogPane{
 }
 Button{
 	-fx-background-color : #99CCFF
+}
+Button:hover{
+	-fx-background-color : #48cae4
 }
