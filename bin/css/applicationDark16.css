@@ -1,6 +1,4 @@
-Label:not(.lblFixe){
-	-fx-font-size : 16px;
-}
+
 Label{
 	-fx-font-size : 16px
 }

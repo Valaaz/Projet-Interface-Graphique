@@ -39,7 +39,7 @@
       <TextField fx:id="textPseudo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Label alignment="CENTER" text="Taille du texte" underline="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Slider fx:id="sliderPolice" blockIncrement="2.0" majorTickUnit="2.0" max="16.0" min="12.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="2.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Label style="-fx-font-size: 16;" styleClass="lblFixe" text="aA" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <Label fx:id="lblGrandA" style="-fx-font-size: 16;" styleClass="lblFixe" text="aA" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <font>
             <Font size="16.0" />
          </font>
@@ -47,7 +47,7 @@
             <Insets left="10.0" />
          </GridPane.margin>
       </Label>
-      <Label style="-fx-font-size: 12;" styleClass="lblFixe" text="aA" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Label fx:id="lblPetitA" style="-fx-font-size: 12;" text="aA" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin>
