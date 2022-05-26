@@ -34,7 +34,7 @@ public class ControleurFinPartie {
 			skin = "B";
 
 		if (gagnant) {
-			msgFin.setText("SUPER " + jeu.getNomJoueur() + " tu as réussi ! Tu as GAGNÉ et trouvé le mot "
+			msgFin.setText("SUPER " + jeu.getNomJoueur() + " tu as reussi ! Tu as GAGNE et trouve le mot "
 					+ jeu.getMotMystere() + " ! ");
 
 			msgFinPendu.setText("MERCI " + jeu.getNomJoueur() + " ! Tu m'as sorti d'affaire !");
@@ -44,11 +44,11 @@ public class ControleurFinPartie {
 			imagePenduFin.setImage(img);
 
 		} else {
-			msgFin.setText("DOMMAGE " + jeu.getNomJoueur() + " ! Tu as PERDU.. Le mot était " + jeu.getMotMystere()
+			msgFin.setText("DOMMAGE " + jeu.getNomJoueur() + " ! Tu as PERDU.. Le mot etait " + jeu.getMotMystere()
 					+ " mais tu fera mieux la prochaine fois !");
 
 			msgFinPendu
-					.setText("NON " + jeu.getNomJoueur() + " ! Tu as échoué mais rien n'est perdu, tu peux réessayer.");
+					.setText("NON " + jeu.getNomJoueur() + " ! Tu as echoue mais rien n'est perdu, tu peux reessayer.");
 
 			Image img = new Image(getClass().getResource("/images/pendu_image/" + skin + "Perdu.png").toExternalForm());
 			imagePenduFin.setImage(img);

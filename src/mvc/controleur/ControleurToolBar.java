@@ -48,8 +48,8 @@ public class ControleurToolBar {
 	@FXML
 	public void initialize() {
 		btnJouer.setTooltip(new Tooltip("Rejouer"));
-		btnParametres.setTooltip(new Tooltip("Paramètres"));
-		btnPreferences.setTooltip(new Tooltip("Préférences"));
+		btnParametres.setTooltip(new Tooltip("Parametres"));
+		btnPreferences.setTooltip(new Tooltip("Preferences"));
 		btnAide.setTooltip(new Tooltip("Aide"));
 		btnQuitter.setTooltip(new Tooltip("Quitter"));
 		btnParametres.setDisable(enPartie);
@@ -66,7 +66,7 @@ public class ControleurToolBar {
 	public void ouvrirParametres() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
-		dialog.setTitle("Paramètres");
+		dialog.setTitle("Parametres");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/parametres.fxml"));
 
 		ControleurParametres contParametres = new ControleurParametres(jeu, option);
@@ -76,7 +76,7 @@ public class ControleurToolBar {
 		dialog.getDialogPane().setContent(grille);
 
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
-		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
+		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar defaut", ButtonData.LEFT);
 		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
@@ -131,7 +131,7 @@ public class ControleurToolBar {
 	public void ouvrirPreferences() throws IOException {
 		Dialog<ButtonType> dialog = new Dialog<>();
 
-		dialog.setTitle("Préférences");
+		dialog.setTitle("Preferences");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mvc/vue/preferences.fxml"));
 
 		ControleurPreferences contPreferences = new ControleurPreferences(jeu, option);
@@ -165,7 +165,7 @@ public class ControleurToolBar {
 		}
 
 		ButtonType buttonTypeValider = new ButtonType("Valider", ButtonData.LEFT);
-		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar défaut", ButtonData.LEFT);
+		ButtonType buttonTypeRes = new ButtonType("Restaurer valeurs\npar defaut", ButtonData.LEFT);
 		ButtonType buttonTypeAnnuler = new ButtonType("Annuler", ButtonData.CANCEL_CLOSE);
 
 		dialog.getDialogPane().getButtonTypes().addAll(buttonTypeValider, buttonTypeRes, buttonTypeAnnuler);
@@ -194,15 +194,15 @@ public class ControleurToolBar {
 
 	@FXML
 	public void ouvrirAide() {
-		String info = "Règles :\n\n"
-				+ "Pour gagner, le joueur doit trouver le mot caché en proposant différentes lettres.\n"
+		String info = "Regles :\n\n"
+				+ "Pour gagner, le joueur doit trouver le mot cache en proposant differentes lettres.\n"
 				+ "Si le joueur se trompe plus de 5 fois alors, la partie est perdue." + "\n\nAide au jeu :\n\n"
-				+ "Pour sélectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
-				+ "Vous pouvez également taper avec le clavier pour sélectionner les lettres du clavier virtuel"
+				+ "Pour selectionner une lettre, cliquez avec le clique gauche de votre souris sur les lettres du clavier visuel.\n"
+				+ "Vous pouvez egalement taper avec le clavier pour selectionner les lettres du clavier virtuel"
 				+ "\n\nSupport :\n\n" + "Tel : 06 42 86 57 38\n" + "e-mail : Antoine.scanu1@gmail.com";
 
 		Alert aide = new Alert(AlertType.INFORMATION);
-		aide.setHeaderText("Règles");
+		aide.setHeaderText("Regles");
 		aide.setContentText(info);
 		if (option.isModeSombre()) {
 			if (option.getTaillePolice() == 12) {

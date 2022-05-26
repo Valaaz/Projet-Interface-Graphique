@@ -88,9 +88,9 @@ public class ControleurPreferences {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 				if (newValue.intValue() > oldValue.intValue()) {
-					// verifie si le pseudo est superieur à la limite
+					// verifie si le pseudo est superieur a la limite
 					if (textPseudo.getText().length() >= LIMIT) {
-						// si ça depasse on set le texte avec 20 caraceères
+						// si ça depasse on set le texte avec 20 caraceeres
 						textPseudo.setText(textPseudo.getText().substring(0, LIMIT));
 					}
 				}

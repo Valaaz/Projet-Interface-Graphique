@@ -87,7 +87,7 @@ public class ControleurJeu {
 			// le bouton devient vert et se desactive
 			btn.setStyle("-fx-background-color: #00CC00");
 			btn.setDisable(true);
-			lblMsgInteractif.setText("Bravo " + jeu.getNomJoueur() + ", tu as trouvé une lettre !");
+			lblMsgInteractif.setText("Bravo " + jeu.getNomJoueur() + ", tu as trouve une lettre !");
 		} else {
 			// le bouton devient gris et se desactive
 			btn.setStyle("-fx-background-color: #CCCCCC");
@@ -98,7 +98,7 @@ public class ControleurJeu {
 			if (jeu.getNbErreurs() != jeu.getNbMaxErreurs()) // evite un depassement de la liste
 				imgPendu.setImage(listeImagesPendu.get(jeu.getNbErreurs() - 1));
 			lblMsgInteractif.setText(
-					"Dommage ! Tu as encore le droit à " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()) + " erreurs");
+					"Dommage ! Tu as encore le droit a " + (jeu.getNbMaxErreurs() - jeu.getNbErreurs()) + " erreurs");
 		}
 
 		// affichage du nombre de lettres restantes
